@@ -5,7 +5,7 @@ export default async function Home() {
 		<main className="flex min-h-screen flex-col  p-24">
 			<h1 className="text-4xl font-extrabold mb-8 text-center">
 				Welcome to my ThreeJS playgound by
-				<span className="text-orange-700 underline inline-block">
+				<span className="text-orange-700 underline block">
 					<a
 						href={"https://www.linkedin.com/in/sergii-medvid/"}
 						target="_blank"
