@@ -1,16 +1,14 @@
 import CanvasWrapper from "@/components/CanvasWrapper";
-import Experience from "@/features/EarthDayAndNight/components/Experience";
-import Overlay from "@/features/EarthDayAndNight/components/Overlay";
+import Experience from "@/features/ShoeConfigurator/components/Experience";
+import Overlay from "@/features/ShoeConfigurator/components/Overlay";
 
 export default function Page() {
 	return (
 		<>
-			<Overlay />
-
 			<CanvasWrapper
 				camera={{
-					position: [0, 15, 50],
-					far: 1000,
+					position: [0, 2, 3],
+					far: 200,
 					near: 0.1,
 					fov: 45,
 				}}
@@ -18,6 +16,7 @@ export default function Page() {
 			>
 				<Experience />
 			</CanvasWrapper>
+			<Overlay />
 		</>
 	);
 }

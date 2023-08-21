@@ -1,22 +1,16 @@
 import Link from "next/link";
-
-type Props = {
-	headline: string;
-	description: string;
-	link: string;
-	tags?: string[];
-};
+import type { FeatureCard } from "@/types";
 
 export default function FeatureCard({
 	headline,
 	description,
 	link,
 	tags,
-}: Props) {
+}: FeatureCard) {
 	return (
 		<Link
 			href={link}
-			className="border block border-solid border-blue-950 p-4 rounded-lg after:content-[''] relative overflow-hidden after:w-full after:h-full after:absolute after:bg-blue-950 after:top-0 after:left-0 after:opacity-0 hover:after:opacity-100 after:-z-10 transition-colors duration-300 hover:text-white after:transition-all after:duration-300"
+			className="border block border-solid border-blue-950 p-4 rounded-lg after:content-[''] relative overflow-hidden after:w-full after:h-full after:absolute after:bg-blue-950 after:top-0 after:left-0 after:opacity-0 hover:after:opacity-100 after:-z-10 transition-colors duration-300 hover:text-white after:transition-all after:duration-300 h-full"
 		>
 			<h3 className="font-semibold">{headline}</h3>
 

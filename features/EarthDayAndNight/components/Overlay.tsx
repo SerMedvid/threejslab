@@ -1,8 +1,9 @@
+"use client";
+
 import { ElementRef, useEffect, useRef } from "react";
 import useStore from "../stores/useStore";
 import { gsap } from "gsap";
 import { ANIMATION_DURATION, ANIMATION_EASE } from "../constants";
-import { Mouse } from "@/components/Icons";
 import MouseIndicator from "@/components/MouseIndicator";
 
 export default function Overlay() {

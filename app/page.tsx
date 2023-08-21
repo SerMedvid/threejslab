@@ -1,5 +1,5 @@
 import FeatureCard from "@/components/FeatureCard";
-import Link from "next/link";
+import { projects } from "./data";
 
 export default async function Home() {
 	return (
@@ -17,21 +17,15 @@ export default async function Home() {
 			</h1>
 
 			<h2 className="text-3xl font-bold mt-12 mb-4 ">List of Experiences</h2>
-			<ul className="justify-self-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-				<li>
-					<FeatureCard
-						headline="Day/Night Earth"
-						tags={[
-							"Mouse interaction",
-							"Multiple scenes",
-							"Realistic textures",
-							"R3F",
-							"Zustand",
-						]}
-						description="Earth mesh with randomized planes paths. Day/night shift on mouse interaction"
-						link="/lab/earth-day-and-night"
-					/>
-				</li>
+			<ul className="justify-self-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+				{projects.map((project) => (
+					<li
+						key={project.headline}
+						className="h-full"
+					>
+						<FeatureCard {...project} />
+					</li>
+				))}
 			</ul>
 		</main>
 	);
