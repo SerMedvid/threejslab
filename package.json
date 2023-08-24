@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/drei": "^9.80.3",
     "@react-three/fiber": "^8.13.6",
+    "@react-three/postprocessing": "^2.15.1",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
@@ -19,6 +20,7 @@
     "autoprefixer": "10.4.15",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
+    "glsl-noise": "^0.0.0",
     "gsap": "^3.12.2",
     "next": "13.4.16",
     "postcss": "8.4.28",
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "leva": "^0.9.35",
-    "r3f-perf": "^7.1.2"
+    "r3f-perf": "^7.1.2",
+    "ts-shader-loader": "^2.0.2"
   }
 }

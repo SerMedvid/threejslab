@@ -2,11 +2,8 @@
 const nextConfig = {
     webpack: (config) => {
         config.module.rules.push({
-          test: /\.hdr$/,
-          use:{
-            loader: 'url-loader'
-          }
-
+          test: /\.(glsl|vert)$/,
+          loader: 'ts-shader-loader'
         })
      
         return config

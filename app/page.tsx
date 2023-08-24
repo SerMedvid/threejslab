@@ -4,8 +4,8 @@ import { projects } from "./data";
 export default async function Home() {
 	return (
 		<main className="flex min-h-screen flex-col p-8  md:p-24">
-			<h1 className="text-4xl font-extrabold mb-8 text-center">
-				Welcome to my ThreeJS playgound by
+			<h1 className="text-6xl font-medium mb-8 text-center font-headline">
+				Welcome to ThreeJS playgound by
 				<span className="text-orange-700 underline block">
 					<a
 						href={"https://www.linkedin.com/in/sergii-medvid/"}

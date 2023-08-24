@@ -18,9 +18,15 @@ export const projects: FeatureCard[] = [
 	},
 	{
 		headline: "Shoe configurator",
-
 		tags: ["Mouse interaction", "R3F", "Zustand", "Color Picker", "GSAP"],
 		description: "Shoe product configurator with color picker functionality",
 		link: "/lab/shoe-configurator",
+	},
+	{
+		headline: "Particles exploding carousel with video",
+		tags: ["Particles", "R3F", "Carousel", "Custom Shaders", "GSAP"],
+		description:
+			"Particles transition effect between videos. Created with custom shaders. Inspired by https://www.m-trust.co.jp",
+		link: "/lab/exploding-particles",
 	},
 ];
