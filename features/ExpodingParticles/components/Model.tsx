@@ -53,7 +53,7 @@ const Model = React.forwardRef<ModelGroupRef, Props>(
 						onRefSetter();
 					}}
 				>
-					<planeGeometry args={[480 * 1.5, 820 * 1.5, 480, 820]} />
+					<planeGeometry args={[480 * 1.5, 820 * 1.5, 240, 410]} />
 					<shaderMaterial
 						key={new Date().toISOString()}
 						side={DoubleSide}

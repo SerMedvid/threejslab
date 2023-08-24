@@ -130,7 +130,7 @@ export default function Expirience() {
 					.add(gsap.set(groupRef.current?.video || null, { opacity: 0 }))
 					.add(
 						gsap.to(uniforms.distortionRate || null, {
-							value: 4,
+							value: 2,
 							duration: 2,
 						}),
 						`slide${slideNum}end`
