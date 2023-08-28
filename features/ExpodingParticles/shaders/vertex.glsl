@@ -1,6 +1,5 @@
-uniform float time;
-uniform sampler2D texture1;
-uniform float distortionRate;
+uniform float uTime;
+uniform float uDistortionRate;
 
 varying vec2 vUv;
 varying vec3 vPosition;
@@ -129,8 +128,8 @@ void main() {
     vUv = uv;
 
     vec3 distortion = vec3(position.x * 2., position.y, 1.) *
-        curlNoise(vec3(position.x * 0.002 + time * 0.1, position.y * 0.008 + time * 0.1, (position.x + position.y) * 0.02)) *
-        distortionRate;
+        curlNoise(vec3(position.x * 0.002 + uTime * 0.1, position.y * 0.008 + uTime * 0.1, (position.x + position.y) * 0.02)) *
+        uDistortionRate;
     vec3 finalPosition = position + distortion;
 
     vec4 mvPosition = modelViewMatrix * vec4(finalPosition, 1.);

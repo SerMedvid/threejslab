@@ -1,13 +1,10 @@
 "use client";
 
-import { OrbitControls, useTexture } from "@react-three/drei";
+import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import {
-	BufferGeometry,
 	LinearSRGBColorSpace,
-	Material,
 	NoToneMapping,
-	NormalBufferAttributes,
 	Points,
 	ShaderMaterial,
 } from "three";
@@ -16,14 +13,7 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BloomEffect } from "postprocessing";
 
 import Model, { ModelGroupRef } from "./Model";
-import {
-	ElementRef,
-	Suspense,
-	useCallback,
-	useEffect,
-	useRef,
-	useState,
-} from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
 import gsap from "gsap";
 
@@ -69,14 +59,14 @@ export default function Expirience() {
 		texture3end: "/assets/ExplodingParticles/video-03-end.jpg",
 	});
 
-	useFrame((state, delta) => {
+	useFrame((state) => {
 		const { gl } = state;
 
 		if (
 			groupRef.current?.mesh &&
 			groupRef.current?.mesh.material instanceof ShaderMaterial
 		) {
-			groupRef.current.mesh.material.uniforms.time.value =
+			groupRef.current.mesh.material.uniforms.uTime.value =
 				state.clock.elapsedTime;
 		}
 
@@ -94,93 +84,101 @@ export default function Expirience() {
 			)
 			.delay(1);
 
-		[...Array(3)].forEach((_, idx, arr) => {
-			const slideNum = idx + 1;
-			const nextSlideNum = (slideNum % arr.length) + 1;
+		if (meshMaterialGuard(groupRef.current?.mesh)) {
+			const mesh = groupRef.current?.mesh as Points<any, ShaderMaterial>;
+			const uniforms = mesh.material.uniforms;
 
-			timeline
-				.add(gsap.set(groupRef.current?.video || null, { opacity: 1 }))
-				.add(() => {
-					if (groupRef.current?.video) {
-						groupRef.current.video.src = `/assets/ExplodingParticles/video-0${slideNum}.mp4`;
-						groupRef.current.video.currentTime = 0;
-
-						groupRef.current.video.onended = () => {
-							timeline.resume();
-						};
-					}
-				})
-				.set({}, {}, "+=2")
-				.add(() => {
-					timeline.pause();
-
-					if (groupRef.current?.video) {
-						groupRef.current.video.play();
-					}
-				});
-
-			if (meshMaterialGuard(groupRef.current?.mesh)) {
-				const mesh = groupRef.current?.mesh as Points<any, ShaderMaterial>;
-				const uniforms = mesh.material.uniforms;
+			[...Array(3)].forEach((_, idx, arr) => {
+				const slideNum = idx + 1;
+				const nextSlideNum = (slideNum % arr.length) + 1;
 
 				timeline
-					.set(uniforms.t, {
+					.add(gsap.set(groupRef.current?.video || null, { opacity: 1 }))
+					.add(() => {
+						if (groupRef.current?.video) {
+							groupRef.current.video.currentTime = 0;
+
+							groupRef.current.video.onended = () => {
+								timeline.resume();
+								mesh.visible = true;
+							};
+						}
+					})
+					.set({}, {}, "+=2")
+					.add(() => {
+						timeline.pause();
+
+						if (groupRef.current?.video) {
+							groupRef.current.video.play();
+							mesh.visible = false;
+						}
+					})
+					.set(uniforms.uTStart, {
 						value: textures[`texture${slideNum}end` as keyof typeof textures],
 					})
-					.add(gsap.set(groupRef.current?.video || null, { opacity: 0 }))
-					.add(
-						gsap.to(uniforms.distortionRate || null, {
-							value: 2,
-							duration: 2,
-						}),
-						`slide${slideNum}end`
-					);
-			}
-
-			timeline
-				.add(
-					gsap.to(bloomRef.current, {
-						intensity: 3,
-						duration: 1.5,
-					}),
-					`slide${slideNum}end`
-				)
-				.add(
-					gsap.to(bloomRef.current, {
-						intensity: 20,
-						duration: 0.5,
-						ease: "Power1.easeOut",
-					})
-				);
-
-			if (meshMaterialGuard(groupRef.current?.mesh)) {
-				const mesh = groupRef.current?.mesh as Points<any, ShaderMaterial>;
-				const uniforms = mesh.material.uniforms;
-
-				timeline
-					.set(uniforms.t, {
+					.set(uniforms.uTEnd, {
 						value:
 							textures[`texture${nextSlideNum}start` as keyof typeof textures],
 					})
 					.add(
-						gsap.to(uniforms.distortionRate || null, {
+						gsap.set(uniforms.uProgress || null, {
 							value: 0,
+						})
+					)
+					.add(gsap.set(groupRef.current?.video || null, { opacity: 0 }))
+					.add(
+						gsap.to(uniforms.uDistortionRate || null, {
+							value: 2,
+							duration: 2,
+							ease: "Power1.easeOut",
+						}),
+						`slide${slideNum}end`
+					)
+					.add(
+						gsap.to(bloomRef.current, {
+							intensity: 4,
 							duration: 1.5,
 							ease: "Power1.easeOut",
 						}),
+						`slide${slideNum}end`
+					)
+					.add(
+						gsap.to(uniforms.uProgress || null, {
+							value: 1,
+							duration: 1,
+						}),
+						"-=0.5"
+					)
+					.add(
+						gsap.to(bloomRef.current, {
+							intensity: 0,
+							duration: 0.75,
+							delay: 0.75,
+							ease: "Power1.easeIn",
+						}),
 						`slide${nextSlideNum}start`
-					);
-			}
-
-			timeline.add(
-				gsap.to(bloomRef.current, {
-					intensity: 0,
-					duration: 0.75,
-					ease: "Power1.easeOut",
-				}),
-				`slide${nextSlideNum}start`
-			);
-		});
+					)
+					.add(
+						gsap.to(uniforms.uDistortionRate || null, {
+							value: 0,
+							duration: 1.5,
+							ease: "Power1.easeIn",
+						}),
+						`slide${nextSlideNum}start`
+					)
+					.add(
+						gsap.to(uniforms.uProgress || null, {
+							value: 1,
+							duration: 1,
+						})
+					)
+					.add(() => {
+						if (groupRef.current?.video) {
+							groupRef.current.video.src = `/assets/ExplodingParticles/video-0${nextSlideNum}.mp4`;
+						}
+					});
+			});
+		}
 
 		timeline.repeat(-1);
 
@@ -217,6 +215,7 @@ export default function Expirience() {
 				<Model
 					ref={groupRef}
 					distortionRate={distortionRate}
+					videoSrc="/assets/ExplodingParticles/video-01.mp4"
 					texture={textures["texture1start"]}
 					onAnimationReady={setIsReadyForAnimation}
 				/>

@@ -1,22 +1,18 @@
 import React, {
-	Dispatch,
 	ElementRef,
-	RefObject,
-	SetStateAction,
 	useCallback,
-	useEffect,
 	useImperativeHandle,
-	useLayoutEffect,
 	useRef,
 } from "react";
-import { DoubleSide, Points, Texture, Vector2, Vector4 } from "three";
+import { DoubleSide, Points, Texture } from "three";
 import vertexShader from "@/features/ExpodingParticles/shaders/vertex.glsl";
 import fragmentShader from "@/features/ExpodingParticles//shaders/fragment.glsl";
-import { Html, useTexture } from "@react-three/drei";
+import { Html } from "@react-three/drei";
 
 type Props = {
 	distortionRate: number;
 	texture: Texture;
+	videoSrc: string;
 	onAnimationReady?: (isReady: boolean) => void;
 };
 
@@ -26,7 +22,7 @@ export type ModelGroupRef = {
 };
 
 const Model = React.forwardRef<ModelGroupRef, Props>(
-	({ distortionRate, texture, onAnimationReady }, ref) => {
+	({ distortionRate, texture, videoSrc, onAnimationReady }, ref) => {
 		const meshRef = useRef<Points | null>(null);
 		const videoRef = useRef<ElementRef<"video"> | null>(null);
 
@@ -53,17 +49,19 @@ const Model = React.forwardRef<ModelGroupRef, Props>(
 						onRefSetter();
 					}}
 				>
-					<planeGeometry args={[480 * 1.5, 820 * 1.5, 240, 410]} />
+					<planeGeometry
+						args={[480 * 1.5, 820 * 1.5, 480 / 1.75, 820 / 1.75]}
+					/>
 					<shaderMaterial
 						key={new Date().toISOString()}
 						side={DoubleSide}
 						uniforms={{
-							t: { value: texture },
-							time: { value: 0 },
-							resolution: { value: new Vector4() },
-							distortionRate: { value: distortionRate },
-							uvRate1: {
-								value: new Vector2(1, 1),
+							uTStart: { value: texture },
+							uTEnd: { value: texture },
+							uTime: { value: 0 },
+							uDistortionRate: { value: distortionRate },
+							uProgress: {
+								value: 0,
 							},
 						}}
 						vertexShader={vertexShader}
@@ -74,7 +72,7 @@ const Model = React.forwardRef<ModelGroupRef, Props>(
 					<div className="-translate-y-1/2 -translate-x-1/2">
 						<video
 							className="max-w-[initial] w-[40vh] h-[58.6vh]"
-							src={"/assets/ExplodingParticles/video-01.mp4"}
+							src={videoSrc}
 							ref={(ref) => {
 								videoRef.current = ref;
 								onRefSetter();
