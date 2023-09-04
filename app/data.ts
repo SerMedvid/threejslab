@@ -29,4 +29,11 @@ export const projects: FeatureCard[] = [
 			"Particles transition effect between videos. Created with custom shaders. Inspired by https://www.m-trust.co.jp",
 		link: "/lab/exploding-particles",
 	},
+	{
+		headline: "Custom fragment shaders",
+		tags: ["R3F", "Custom Shaders"],
+		description:
+			"Custom shaders playground, playing with colors and uv position",
+		link: "/lab/shaders-selector",
+	},
 ];

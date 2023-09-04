@@ -9,11 +9,12 @@ type Props = {
 
 export default function CanvasWrapper({
 	children,
+	className,
 	withPerf = true,
 	...rest
 }: Props) {
 	return (
-		<div className="top-0 left-0 w-full h-full fixed ">
+		<div className={className || "top-0 left-0 w-full h-full fixed "}>
 			<Canvas {...rest}>
 				{withPerf && <Perf position="top-left" />}
 				{children}
