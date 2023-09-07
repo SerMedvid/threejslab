@@ -33,7 +33,7 @@ export const projects: FeatureCard[] = [
 		headline: "Custom fragment shaders",
 		tags: ["R3F", "Custom Shaders"],
 		description:
-			"Custom shaders playground, playing with colors and uv position",
+			"Custom shaders collection, playing with colors, shape and uv position",
 		link: "/lab/shaders-selector",
 	},
 ];

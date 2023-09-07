@@ -13,6 +13,7 @@ export default function Preview({ shader }: Props) {
 			wrapLongLines
 			customStyle={{
 				overflowX: "hidden",
+				paddingBottom: 30,
 			}}
 		>
 			{shader}

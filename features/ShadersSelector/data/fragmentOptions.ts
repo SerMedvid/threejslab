@@ -18,6 +18,37 @@ import fragShader17 from "../shaders/fragment17.glsl";
 import fragShader18 from "../shaders/fragment18.glsl";
 import fragShader19 from "../shaders/fragment19.glsl";
 import fragShader20 from "../shaders/fragment20.glsl";
+import fragShader21 from "../shaders/fragment21.glsl";
+import fragShader22 from "../shaders/fragment22.glsl";
+import fragShader23 from "../shaders/fragment23.glsl";
+import fragShader24 from "../shaders/fragment24.glsl";
+import fragShader25 from "../shaders/fragment25.glsl";
+import fragShader26 from "../shaders/fragment26.glsl";
+import fragShader27 from "../shaders/fragment27.glsl";
+import fragShader28 from "../shaders/fragment28.glsl";
+import fragShader29 from "../shaders/fragment29.glsl";
+import fragShader30 from "../shaders/fragment30.glsl";
+import fragShader31 from "../shaders/fragment31.glsl";
+import fragShader32 from "../shaders/fragment32.glsl";
+import fragShader33 from "../shaders/fragment33.glsl";
+import fragShader34 from "../shaders/fragment34.glsl";
+import fragShader35 from "../shaders/fragment35.glsl";
+import fragShader36 from "../shaders/fragment36.glsl";
+import fragShader37 from "../shaders/fragment37.glsl";
+import fragShader38 from "../shaders/fragment38.glsl";
+import fragShader39 from "../shaders/fragment39.glsl";
+import fragShader40 from "../shaders/fragment40.glsl";
+import fragShader41 from "../shaders/fragment41.glsl";
+import fragShader42 from "../shaders/fragment42.glsl";
+import fragShader43 from "../shaders/fragment43.glsl";
+import fragShader44 from "../shaders/fragment44.glsl";
+import fragShader45 from "../shaders/fragment45.glsl";
+import fragShader46 from "../shaders/fragment46.glsl";
+import fragShader47 from "../shaders/fragment47.glsl";
+import fragShader48 from "../shaders/fragment48.glsl";
+import fragShader49 from "../shaders/fragment49.glsl";
+import fragShader50 from "../shaders/fragment50.glsl";
+import fragShader51 from "../shaders/fragment51.glsl";
 
 const fragOptions = [
 	{
@@ -119,6 +150,161 @@ const fragOptions = [
 		label: "Patern 20",
 		shader: fragShader20,
 		value: 20,
+	},
+	{
+		label: "Patern 21",
+		shader: fragShader21,
+		value: 21,
+	},
+	{
+		label: "Patern 22",
+		shader: fragShader22,
+		value: 22,
+	},
+	{
+		label: "Patern 23",
+		shader: fragShader23,
+		value: 23,
+	},
+	{
+		label: "Patern 24",
+		shader: fragShader24,
+		value: 24,
+	},
+	{
+		label: "Patern 25",
+		shader: fragShader25,
+		value: 25,
+	},
+	{
+		label: "Patern 26",
+		shader: fragShader26,
+		value: 26,
+	},
+	{
+		label: "Patern 27",
+		shader: fragShader27,
+		value: 27,
+	},
+	{
+		label: "Patern 28",
+		shader: fragShader28,
+		value: 28,
+	},
+	{
+		label: "Patern 29",
+		shader: fragShader29,
+		value: 29,
+	},
+	{
+		label: "Patern 30",
+		shader: fragShader30,
+		value: 30,
+	},
+	{
+		label: "Patern 31",
+		shader: fragShader31,
+		value: 31,
+	},
+	{
+		label: "Patern 32",
+		shader: fragShader32,
+		value: 32,
+	},
+	{
+		label: "Patern 33",
+		shader: fragShader33,
+		value: 33,
+	},
+	{
+		label: "Patern 34",
+		shader: fragShader34,
+		value: 34,
+	},
+	{
+		label: "Patern 35",
+		shader: fragShader35,
+		value: 35,
+	},
+	{
+		label: "Patern 36",
+		shader: fragShader36,
+		value: 36,
+	},
+	{
+		label: "Patern 37",
+		shader: fragShader37,
+		value: 37,
+	},
+	{
+		label: "Patern 38",
+		shader: fragShader38,
+		value: 38,
+	},
+	{
+		label: "Patern 39",
+		shader: fragShader39,
+		value: 39,
+	},
+	{
+		label: "Patern 40",
+		shader: fragShader40,
+		value: 40,
+	},
+	{
+		label: "Patern 41",
+		shader: fragShader41,
+		value: 41,
+	},
+	{
+		label: "Patern 42",
+		shader: fragShader42,
+		value: 42,
+	},
+	{
+		label: "Patern 43",
+		shader: fragShader43,
+		value: 43,
+	},
+	{
+		label: "Patern 44",
+		shader: fragShader44,
+		value: 44,
+	},
+	{
+		label: "Patern 45",
+		shader: fragShader45,
+		value: 45,
+	},
+	{
+		label: "Patern 46",
+		shader: fragShader46,
+		value: 46,
+	},
+	{
+		label: "Patern 47",
+		shader: fragShader47,
+		value: 47,
+	},
+	{
+		label: "Patern 48",
+		shader: fragShader48,
+		value: 48,
+	},
+	{
+		label: "Patern 49",
+		shader: fragShader49,
+		value: 49,
+	},
+	{
+		label: "Patern 50",
+		shader: fragShader50,
+		value: 50,
+	},
+	{
+		label: "Patern 51",
+		shader: fragShader51,
+		value: 51,
 	},
 ];
 

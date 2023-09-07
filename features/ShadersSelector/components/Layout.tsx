@@ -26,8 +26,8 @@ export default function Layout() {
 	const { shader: vertex } = vertexOption;
 
 	return (
-		<div className="flex flex-col h-full lg:flex-row-reverse bg-black ">
-			<div className="min-w-[400px] py-8 px-10">
+		<div className="flex flex-col h-full lg:flex-row-reverse bg-black">
+			<div className="md:min-w-[400px] py-8 px-10  overflow-hidden max-h-[45vh] min-h-[250px] lg:max-h-full lg:mb-8">
 				<Select
 					isMulti={false}
 					options={fragOptions}
@@ -41,7 +41,7 @@ export default function Layout() {
 						},
 					})}
 				/>
-				<div className="mt-4 ">
+				<div className="mt-4 overflow-auto h-full">
 					<Preview shader={frag} />
 				</div>
 			</div>
