@@ -20,7 +20,6 @@
     "autoprefixer": "10.4.15",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
-    "glsl-noise": "^0.0.0",
     "gsap": "^3.12.2",
     "next": "13.4.16",
     "postcss": "8.4.28",
@@ -37,8 +36,11 @@
   },
   "devDependencies": {
     "@types/react-syntax-highlighter": "^15.5.7",
+    "glslify": "^7.1.1",
+    "glslify-loader": "^2.0.0",
     "leva": "^0.9.35",
     "r3f-perf": "^7.1.2",
+    "raw-loader": "^4.0.2",
     "ts-shader-loader": "^2.0.2"
   }
 }

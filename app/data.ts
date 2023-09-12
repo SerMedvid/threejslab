@@ -36,4 +36,11 @@ export const projects: FeatureCard[] = [
 			"Custom shaders collection, playing with colors, shape and uv position",
 		link: "/lab/shaders-selector",
 	},
+	{
+		headline: "Particles carousel with mouse interaction",
+		tags: ["R3F", "Custom Shaders", "Particles", "GSAP", "Carousel"],
+		description:
+			"Image carousel build on top of particle effect with custom shader. Wave effect on mouse movement",
+		link: "/lab/interactive-particles",
+	},
 ];
