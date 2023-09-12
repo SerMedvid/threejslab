@@ -15,6 +15,10 @@ const assets = [
 	"lion-texture2.jpg",
 ];
 
+/**
+ * Article: https://tympanus.net/codrops/2019/01/17/interactive-particles-with-three-js/
+ */
+
 export default function Experience() {
 	const meshRef = useRef<Mesh>(null);
 	const animationRef = useRef(false);
