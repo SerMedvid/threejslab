@@ -43,4 +43,11 @@ export const projects: FeatureCard[] = [
 			"Image carousel build on top of particle effect with custom shader. Wave effect on mouse movement",
 		link: "/lab/interactive-particles",
 	},
+	{
+		headline: "Particles galaxy",
+		tags: ["R3F", "Custom Shaders", "Particles"],
+		description:
+			"Static and animated version of galaxy generator with configuration options",
+		link: "/lab/galaxy",
+	},
 ];
