@@ -50,4 +50,10 @@ export const projects: FeatureCard[] = [
 			"Static and animated version of galaxy generator with configuration options",
 		link: "/lab/galaxy",
 	},
+	{
+		headline: "3D carousel",
+		tags: ["R3F", "Carousel", "Camera control"],
+		description: "3D slider with camera movement showcasing product options",
+		link: "/lab/3d-car-slider",
+	},
 ];
