@@ -56,4 +56,11 @@ export const projects: FeatureCard[] = [
 		description: "3D slider with camera movement showcasing product options",
 		link: "/lab/3d-car-slider",
 	},
+	{
+		headline: "3D infinite circle gallery",
+		tags: ["R3F", "Carousel", "Custom Shaders", "Mouse interaction"],
+		description:
+			"3D slider with infinite circullar effect and fabric-like animation",
+		link: "/lab/infinite-gallery",
+	},
 ];
