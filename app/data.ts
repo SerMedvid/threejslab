@@ -63,7 +63,6 @@ export const projects: FeatureCard[] = [
 			"3D slider with infinite circullar effect and fabric-like animation",
 		link: "/lab/infinite-gallery",
 	},
-	,
 	{
 		headline: "Scroll animated plane journey",
 		tags: ["R3F", "Scroll", "Custom Shaders"],
