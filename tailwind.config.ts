@@ -17,8 +17,30 @@ const config: Config = {
 			fontFamily: {
 				headline: "var(--font-headers)",
 			},
+			keyframes: {
+				fadeup: {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(100px)",
+						filter: "blur(9px)",
+					},
+					"100%": { opacity: "1", filter: "none" },
+				},
+				fadein: {
+					"0%": {
+						opacity: "0",
+					},
+					"100%": { opacity: "1" },
+				},
+				fadeout: {
+					"0%": {
+						opacity: "1",
+					},
+					"100%": { opacity: "0" },
+				},
+			},
 		},
 	},
-	plugins: [],
+	plugins: [require("tailwind-scrollbar")],
 };
 export default config;
