@@ -103,19 +103,24 @@ export default function Model({ id, img, title, url, geometry, index }: Props) {
 
 	const onClick = async (evt: ThreeEvent<PointerEvent>) => {
 		evt.stopPropagation();
+		document.body.style.cursor = "";
 		await cornerTl.current?.play();
 		router.push(url);
 	};
 
 	const onHover = () => {
 		router.prefetch(url);
+		document.body.style.cursor = "pointer";
 	};
 
 	return (
 		<group
 			name={id}
 			onPointerUp={onClick}
-			onPointerOver={onHover}
+			onPointerEnter={onHover}
+			onPointerLeave={() => {
+				document.body.style.cursor = "";
+			}}
 			position-x={totalOffset * index - totalOffset}
 		>
 			{/**preload the actual image Next is going to use on the next page */}

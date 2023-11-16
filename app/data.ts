@@ -72,7 +72,7 @@ export const projects: FeatureCard[] = [
 	},
 	{
 		headline: "Page smooth transition",
-		tags: ["R3F", "Scroll", "Custom Shaders", "GSAP"],
+		tags: ["R3F", "Scroll", "Custom Shaders", "GSAP", "Navigation"],
 		description:
 			"Awwward smooth transition between WebGL and static pages in NextJS",
 		link: "/lab/page-transition",
