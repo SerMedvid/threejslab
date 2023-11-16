@@ -70,4 +70,11 @@ export const projects: FeatureCard[] = [
 			"Scroll based plane journey with speed up effect, bacground change and text embed",
 		link: "/lab/scroll-plane",
 	},
+	{
+		headline: "Page smooth transition",
+		tags: ["R3F", "Scroll", "Custom Shaders", "GSAP"],
+		description:
+			"Awwward smooth transition between WebGL and static pages in NextJS",
+		link: "/lab/page-transition",
+	},
 ];
