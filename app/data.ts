@@ -77,4 +77,11 @@ export const projects: FeatureCard[] = [
 			"Awwward smooth transition between WebGL and static pages in NextJS",
 		link: "/lab/page-transition",
 	},
+	{
+		headline: "Heat distortion effect",
+		tags: ["R3F", "Parallax", "Custom Shaders"],
+		description:
+			"Heat distortion effect on static image with depth/parallax on mouse movement",
+		link: "/lab/distortion-effect",
+	},
 ];
