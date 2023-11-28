@@ -84,4 +84,12 @@ export const projects: FeatureCard[] = [
 			"Heat distortion effect on static image with depth/parallax on mouse movement",
 		link: "/lab/distortion-effect",
 	},
+	,
+	{
+		headline: "Image Transition Effect",
+		tags: ["R3F", "Custom Shaders"],
+		description:
+			"Image transition between 2 states of picture on hover using shader distortion",
+		link: "/lab/image-transitiont",
+	},
 ];

@@ -6,7 +6,7 @@ import React, { ComponentProps, useLayoutEffect, useRef } from "react";
 import { useThree } from "@react-three/fiber";
 
 type Props = ComponentProps<typeof PerspectiveCameraDrei> & {
-	distance: number;
+	distance?: number;
 };
 
 const calculateCameraFov = (height: number, distance: number) =>
