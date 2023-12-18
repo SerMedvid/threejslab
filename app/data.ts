@@ -91,4 +91,11 @@ export const projects: FeatureCard[] = [
 			"Image transition between 2 states of picture on hover using shader distortion",
 		link: "/lab/image-transitiont",
 	},
+	{
+		headline: "Product showcase 3D",
+		tags: ["R3F", "Postprocessing", "Html mixture"],
+		description:
+			"3d product showcase with bloom postrosessing, text shader and camera controls",
+		link: "/lab/mesmerized-3d",
+	},
 ];
