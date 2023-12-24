@@ -98,4 +98,10 @@ export const projects: FeatureCard[] = [
 			"3d product showcase with bloom postrosessing, text shader and camera controls",
 		link: "/lab/mesmerized-3d",
 	},
+	{
+		headline: "Cybertruck body shaders",
+		tags: ["R3F", "Custom Shaders"],
+		description: "Cybertruck body shader configuration",
+		link: "/lab/truck-shader",
+	},
 ];
