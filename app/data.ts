@@ -89,7 +89,7 @@ export const projects: FeatureCard[] = [
 		tags: ["R3F", "Custom Shaders"],
 		description:
 			"Image transition between 2 states of picture on hover using shader distortion",
-		link: "/lab/image-transitiont",
+		link: "/lab/image-transition",
 	},
 	{
 		headline: "Product showcase 3D",
