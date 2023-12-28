@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    width: 2px;
+    height: 2px;
 }
 
 /* TRACK */
@@ -10,5 +10,4 @@
 /* HANDLE */
 ::-webkit-scrollbar-thumb {
   background: white;
-  height: 10%;
 }

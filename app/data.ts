@@ -104,4 +104,10 @@ export const projects: FeatureCard[] = [
 		description: "Cybertruck body shader configuration",
 		link: "/lab/truck-shader",
 	},
+	{
+		headline: "Scroll Gallery",
+		tags: ["R3F", "Image", "Scroll", "Mouse Interaction"],
+		description: "Gallery with interaction effect on hover and click",
+		link: "/lab/scroll-gallery",
+	},
 ];
