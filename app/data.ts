@@ -110,4 +110,11 @@ export const projects: FeatureCard[] = [
 		description: "Gallery with interaction effect on hover and click",
 		link: "/lab/scroll-gallery",
 	},
+	{
+		headline: "Portal Scene",
+		tags: ["R3F", "Blender", "LowPoly", "Custom Shaders"],
+		description:
+			"Low poly 3d scene created in Blender with baked shadows. Custom shader for portal light",
+		link: "/lab/portal",
+	},
 ];
