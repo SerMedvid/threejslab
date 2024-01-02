@@ -117,4 +117,10 @@ export const projects: FeatureCard[] = [
 			"Low poly 3d scene created in Blender with baked shadows. Custom shader for portal light",
 		link: "/lab/portal",
 	},
+	{
+		headline: "Forest Road Scene",
+		tags: ["R3F", "Blender", "LowPoly"],
+		description: "Low poly 3d scene created in Blender with baked shadows",
+		link: "/lab/forest-road",
+	},
 ];
