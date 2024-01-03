@@ -1,8 +1,14 @@
 "use client";
 
-import { OrbitControls, useGLTF, useTexture } from "@react-three/drei";
-import { useEffect, useRef } from "react";
+import {
+	Environment,
+	OrbitControls,
+	useGLTF,
+	useTexture,
+} from "@react-three/drei";
+import { Suspense, useEffect, useRef } from "react";
 import { Group, Mesh, MeshBasicMaterial, SRGBColorSpace, Texture } from "three";
+import LowpolycarModel from "./LowpolycarModel";
 
 export default function Experience() {
 	const modelRef = useRef<Group>(null);
@@ -42,6 +48,15 @@ export default function Experience() {
 				ref={modelRef}
 				object={model.scene}
 			/>
+			<Suspense>
+				<LowpolycarModel
+					position={[1, 1.48, 20]}
+					scale={0.25}
+					rotation-y={Math.PI / 2}
+				/>
+			</Suspense>
+
+			<Environment preset="forest" />
 		</>
 	);
 }
