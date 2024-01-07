@@ -123,4 +123,10 @@ export const projects: FeatureCard[] = [
 		description: "Low poly 3d scene created in Blender with baked shadows",
 		link: "/lab/forest-road",
 	},
+	{
+		headline: "Scene transition",
+		tags: ["R3F", "Custom Shaders", "Render Target"],
+		description: "Custom shader transition between to scenes",
+		link: "/lab/scene-transition",
+	},
 ];
