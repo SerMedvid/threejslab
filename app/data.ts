@@ -129,4 +129,10 @@ export const projects: FeatureCard[] = [
 		description: "Custom shader transition between to scenes",
 		link: "/lab/scene-transition",
 	},
+	{
+		headline: "Scroll Gallery 2",
+		tags: ["R3F", "Image", "Scroll"],
+		description: "Gallery with interaction effect on scroll and text mix",
+		link: "/lab/scroll-gallery2",
+	},
 ];
