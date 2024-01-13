@@ -135,4 +135,10 @@ export const projects: FeatureCard[] = [
 		description: "Gallery with interaction effect on scroll and text mix",
 		link: "/lab/scroll-gallery2",
 	},
+	{
+		headline: "Ruins Scene",
+		tags: ["R3F", "Blender", "LowPoly", "Custom Shaders"],
+		description: "Low poly 3d scene created in Blender with baked shadows",
+		link: "/lab/ruins-scene",
+	},
 ];
