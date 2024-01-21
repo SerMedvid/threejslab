@@ -9,7 +9,7 @@ type Store = {
 };
 
 const imgs = [...Array(16)].map(
-	(_, idx) => `/assets/ScrollGallery/${idx + 1}.jpg`
+	(_, idx) => `/assets/FurnitureGallery/${idx + 1}.jpg`
 );
 
 const DEFAULT_PROPS = {

@@ -141,4 +141,10 @@ export const projects: FeatureCard[] = [
 		description: "Low poly 3d scene created in Blender with baked shadows",
 		link: "/lab/ruins-scene",
 	},
+	{
+		headline: "Lens Effect with Scrollable Page",
+		tags: ["R3F", "Image", "Scroll", "Lens Effect"],
+		description: "Mix with scrollable gallery and lens bound to mouse movement",
+		link: "/lab/glass-effect",
+	},
 ];

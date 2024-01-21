@@ -4,7 +4,7 @@ import GalleryItem from "./GalleryItem";
 const PER_CHUNK = 3;
 
 const imgs = [...Array(15)].map(
-	(_, idx) => `/assets/ScrollGallery/${idx + 1}.jpg`
+	(_, idx) => `/assets/FurnitureGallery/${idx + 1}.jpg`
 );
 
 const groupedImgs = [...imgs, ...imgs].reduce((accum, item, idx) => {
