@@ -147,4 +147,10 @@ export const projects: FeatureCard[] = [
 		description: "Mix with scrollable gallery and lens bound to mouse movement",
 		link: "/lab/glass-effect",
 	},
+	{
+		headline: "Water Effect for 3D Scene",
+		tags: ["R3F", "Image", "Custom Shader", "Mouse interaction"],
+		description: "Water Effect on mouse interaction for rendered 3D scene",
+		link: "/lab/water-effect",
+	},
 ];
