@@ -153,4 +153,11 @@ export const projects: FeatureCard[] = [
 		description: "Water Effect on mouse interaction for rendered 3D scene",
 		link: "/lab/water-effect",
 	},
+	{
+		headline: "Portals",
+		tags: ["R3F", "Portal", "Mouse interaction"],
+		description:
+			"Scene with different portals and mouse interaction for entering world",
+		link: "/lab/pocketmonster-portals",
+	},
 ];
