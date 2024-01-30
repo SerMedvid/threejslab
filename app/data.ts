@@ -160,4 +160,11 @@ export const projects: FeatureCard[] = [
 			"Scene with different portals and mouse interaction for entering world",
 		link: "/lab/pocketmonster-portals",
 	},
+	{
+		headline: "Paint Reveal Scene",
+		tags: ["R3F", "Custom Shader", "Mouse interaction"],
+		description:
+			"Sobel to original scene transition via paint reveal effect. Inspired by https://kidsuper.world/",
+		link: "/lab/paint-reveal",
+	},
 ];

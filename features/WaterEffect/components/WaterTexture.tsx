@@ -54,8 +54,6 @@ export default function WaterTexture() {
 		[onMove]
 	);
 
-	useFrame(() => {});
-
 	return (
 		<mesh
 			scale={[width, height, 1]}
