@@ -98,8 +98,6 @@ export function CybertruckModel(props: Props) {
 		}
 	});
 
-	console.log(uColorA);
-
 	useEffect(() => {
 		materials.lights.toneMapped = false;
 		materials.warninglights.toneMapped = false;

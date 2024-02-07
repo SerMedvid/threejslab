@@ -228,8 +228,6 @@ export default function Experience() {
 				"Fade In": Transition.FADEIN,
 			},
 			onChange: (value) => {
-				console.log(value);
-
 				if (renderMaterialRef.current?.uTransitionMode !== undefined) {
 					renderMaterialRef.current.uTransitionMode = value;
 				}

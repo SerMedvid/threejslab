@@ -167,4 +167,11 @@ export const projects: FeatureCard[] = [
 			"Sobel to original scene transition via paint reveal effect. Inspired by https://kidsuper.world/",
 		link: "/lab/paint-reveal",
 	},
+	{
+		headline: "Infinite Text Scroll",
+		tags: ["R3F", "Custom Shader", "Mouse interaction"],
+		description:
+			"Infinite book scroll with cover change and distortion ripple effect. Inspired by https://designembraced.com/",
+		link: "/lab/scroll-text-gallery",
+	},
 ];
