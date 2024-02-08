@@ -174,4 +174,10 @@ export const projects: FeatureCard[] = [
 			"Infinite book scroll with cover change and distortion ripple effect. Inspired by https://designembraced.com/",
 		link: "/lab/scroll-text-gallery",
 	},
+	{
+		headline: "Cyberpunk Scene",
+		tags: ["R3F", "Blender", "LowPoly"],
+		description: "Low poly 3d scene created in Blender",
+		link: "/lab/cloud69-scene",
+	},
 ];
