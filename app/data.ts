@@ -180,4 +180,11 @@ export const projects: FeatureCard[] = [
 		description: "Low poly 3d scene created in Blender",
 		link: "/lab/cloud69-scene",
 	},
+	{
+		headline: "Encryption morph slider",
+		tags: ["R3F", "Custom Shader", "Raycaster", "Particles", "Text"],
+		description:
+			"Infinite image to text morph slider with particles effect. Inspired by https://evervault.com/",
+		link: "/lab/encrypt-slider",
+	},
 ];
