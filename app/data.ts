@@ -187,4 +187,11 @@ export const projects: FeatureCard[] = [
 			"Infinite image to text morph slider with particles effect. Inspired by https://evervault.com/",
 		link: "/lab/encrypt-slider",
 	},
+	{
+		headline: "Smoke custom material",
+		tags: ["R3F", "Custom Shader", "Blender"],
+		description:
+			"Kitchen scene with cheap smoke shader based on perlin texture",
+		link: "/lab/kitchen-smoke",
+	},
 ];
