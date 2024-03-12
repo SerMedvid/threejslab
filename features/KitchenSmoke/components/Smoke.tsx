@@ -10,7 +10,10 @@ import {
 
 import { useTexture } from "@react-three/drei";
 import { extend, useFrame } from "@react-three/fiber";
-import { SmokeMaterial, SmokeMaterialT } from "./SmokeMaterial";
+import {
+	SmokeMaterial,
+	SmokeMaterialT,
+} from "@/components/materials/SmokeMaterial";
 
 type Props = JSX.IntrinsicElements["group"] & {
 	speed?: number;

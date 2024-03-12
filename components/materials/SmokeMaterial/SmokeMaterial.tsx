@@ -2,8 +2,8 @@ import { shaderMaterial } from "@react-three/drei";
 import { ReactThreeFiber } from "@react-three/fiber";
 import { Texture } from "three";
 
-import fragmentShader from "../shaders/smoke/fragmentShader.glsl";
-import vertextShader from "../shaders/smoke/vertexShader.glsl";
+import fragmentShader from "./shaders/fragmentShader.glsl";
+import vertextShader from "./shaders/vertexShader.glsl";
 
 export const SmokeMaterial = shaderMaterial(
 	{
