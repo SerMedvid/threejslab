@@ -16,7 +16,7 @@ void main() {
 
     glitchStrenght /= 3.;
     glitchStrenght = smoothstep(0.3, 1., glitchStrenght);
-    glitchStrenght *= 0.25;
+    glitchStrenght *= 1.25;
     modelPosition.x += (random2D(modelPosition.xz + time) - 0.5) * glitchStrenght;
     modelPosition.z += (random2D(modelPosition.zx + time) - 0.5) * glitchStrenght;
 

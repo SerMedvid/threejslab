@@ -194,4 +194,10 @@ export const projects: FeatureCard[] = [
 			"Kitchen scene with cheap smoke shader based on perlin texture",
 		link: "/lab/kitchen-smoke",
 	},
+	{
+		headline: "Star Wars scene",
+		tags: ["R3F", "Custom Shader", "Blender"],
+		description: "Custom blender scene recreated with holographic material",
+		link: "/lab/star-wars-hologram",
+	},
 ];
