@@ -200,4 +200,18 @@ export const projects: FeatureCard[] = [
 		description: "Custom blender scene recreated with holographic material",
 		link: "/lab/star-wars-hologram",
 	},
+	{
+		headline: "Park fireworks scene",
+		tags: [
+			"R3F",
+			"Custom Shader",
+			"Blender",
+			"LowPoly",
+			"Particles",
+			"Mouse interaction",
+		],
+		description:
+			"Custom low poly blender park scene with fireworks on mouse interaction",
+		link: "/lab/fireworks",
+	},
 ];
