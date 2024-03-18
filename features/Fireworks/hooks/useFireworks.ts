@@ -190,7 +190,7 @@ export default function useFireworks() {
 		color.setHSL(Math.random(), 1, 0.7);
 
 		createFirework({ count, position, size, texture, radius, color });
-	}, [createFirework]);
+	}, [createFirework, textures]);
 
 	useEffect(() => {
 		if (firePressed) {
@@ -198,3 +198,12 @@ export default function useFireworks() {
 		}
 	}, [createRandomFirework, firePressed, textures]);
 }
+
+useTexture.preload("/assets/Firework/particles/1.png");
+useTexture.preload("/assets/Firework/particles/2.png");
+useTexture.preload("/assets/Firework/particles/3.png");
+useTexture.preload("/assets/Firework/particles/4.png");
+useTexture.preload("/assets/Firework/particles/5.png");
+useTexture.preload("/assets/Firework/particles/6.png");
+useTexture.preload("/assets/Firework/particles/7.png");
+useTexture.preload("/assets/Firework/particles/8.png");
