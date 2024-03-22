@@ -78,10 +78,7 @@ export default function WaterTexture() {
 					},
 				}}
 			>
-				<RenderTexture
-					attach={"uniforms-uSceneTexture-value"}
-					sourceFile={undefined}
-				>
+				<RenderTexture attach={"uniforms-uSceneTexture-value"}>
 					<InnerScene />
 				</RenderTexture>
 			</shaderMaterial>

@@ -83,10 +83,7 @@ export default function Slider({
 						},
 					}}
 				>
-					<RenderTexture
-						sourceFile={undefined}
-						attach={"uniforms-uImageTexture-value"}
-					>
+					<RenderTexture attach={"uniforms-uImageTexture-value"}>
 						<SliderGroup
 							firstElementOffset={firstElementOffset}
 							totalOffset={offset}
@@ -95,10 +92,7 @@ export default function Slider({
 						</SliderGroup>
 					</RenderTexture>
 
-					<RenderTexture
-						sourceFile={undefined}
-						attach={"uniforms-uTextTexture-value"}
-					>
+					<RenderTexture attach={"uniforms-uTextTexture-value"}>
 						<SliderGroup
 							firstElementOffset={firstElementOffset}
 							totalOffset={offset}

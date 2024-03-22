@@ -135,10 +135,7 @@ export default function Experience() {
 					toneMapped={false}
 					ref={textMaterialRef}
 				>
-					<RenderTexture
-						attach={"map"}
-						sourceFile={"/assets/Mesmerized3d/camping.glb"}
-					>
+					<RenderTexture attach={"map"}>
 						<color
 							attach={"background"}
 							args={["fff"]}

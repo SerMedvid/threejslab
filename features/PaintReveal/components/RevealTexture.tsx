@@ -99,10 +99,7 @@ export default function RevealTexture({ children }: Props) {
 					uTextureEnd={sceneTexture.texture}
 					uTextureProgress={moveTexture}
 				>
-					<RenderTexture
-						attach={"uniforms-uTextureStart-value"}
-						sourceFile={undefined}
-					>
+					<RenderTexture attach={"uniforms-uTextureStart-value"}>
 						<mesh scale={[width, height, 1]}>
 							<planeGeometry args={[1, 1]} />
 							<sobelMaterial

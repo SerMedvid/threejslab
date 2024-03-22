@@ -50,10 +50,7 @@ export default function Experience() {
 					<planeGeometry args={[viewport.width, viewport.height]} />
 
 					<meshBasicMaterial toneMapped={false}>
-						<RenderTexture
-							attach={"map"}
-							sourceFile={scene.path}
-						>
+						<RenderTexture attach={"map"}>
 							<Scene {...scene} />
 						</RenderTexture>
 					</meshBasicMaterial>
