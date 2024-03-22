@@ -214,4 +214,11 @@ export const projects: FeatureCard[] = [
 			"Custom low poly blender park scene with fireworks on mouse interaction",
 		link: "/lab/fireworks",
 	},
+	{
+		headline: "Custom light shading",
+		tags: ["R3F", "Custom Shader"],
+		description:
+			"Simplified version of directional, point and ambient light added via shader",
+		link: "/lab/light-shading",
+	},
 ];
