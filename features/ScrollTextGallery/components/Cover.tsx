@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Float, Image, useTexture } from "@react-three/drei";
+import { Float, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { ElementRef, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { list } from "../data";
-import { DoubleSide, ShaderMaterial } from "three";
+import { DoubleSide, Mesh, MeshBasicMaterial, SphereGeometry } from "three";
 import useStore from "../store/useStore";
 
 export default function Cover() {
-	const ref = useRef<ElementRef<typeof Image>>(null);
+	const ref = useRef<Mesh<SphereGeometry, MeshBasicMaterial>>(null);
 
 	const textures = useTexture(list.map(({ cover }) => cover));
 	const currentTexture = useRef(0);
@@ -61,25 +61,27 @@ export default function Cover() {
 
 		if (
 			ref.current?.material &&
-			ref.current.material instanceof ShaderMaterial
+			ref.current.material instanceof MeshBasicMaterial
 		) {
-			ref.current.material.side = DoubleSide;
-			ref.current.material.uniforms.map.value = textures[currentIndex];
+			ref.current.material.map = textures[currentIndex];
 		}
 	});
 
 	return (
 		<>
 			<Float>
-				<Image
+				<mesh
 					position-z={-4.5}
-					scale={[2.5, 2.5 * 1.57]}
+					scale={[2.5, 2.5 * 1.57, 1]}
 					scale-z={2.5}
 					ref={ref}
-					texture={textures[currentTexture.current]}
 				>
+					<meshBasicMaterial
+						map={textures[currentTexture.current]}
+						side={DoubleSide}
+					/>
 					<sphereGeometry args={[2.5, 60, 60, 1.5, 0.2, 1.5, 0.2]} />
-				</Image>
+				</mesh>
 			</Float>
 		</>
 	);

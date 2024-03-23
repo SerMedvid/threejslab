@@ -7,21 +7,21 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { useFrame } from "@react-three/fiber";
-import { Group, Mesh, Vector3 } from "three";
+import { Group, Mesh, MeshStandardMaterial, Vector3 } from "three";
 import { nr } from "@/utils";
 import useStore from "../stores/useStore";
 import { gsap } from "gsap";
 
 type GLTFResult = GLTF & {
 	nodes: {
-		Cube_2_2_Body_0_1: THREE.Mesh;
-		Cube_2_2_Body_0_2: THREE.Mesh;
-		Cube_2_2_Body_0_3: THREE.Mesh;
+		Cube_2_2_Body_0_1: Mesh;
+		Cube_2_2_Body_0_2: Mesh;
+		Cube_2_2_Body_0_3: Mesh;
 	};
 	materials: {
-		Body: THREE.MeshStandardMaterial;
-		material: THREE.MeshStandardMaterial;
-		Glass: THREE.MeshStandardMaterial;
+		Body: MeshStandardMaterial;
+		material: MeshStandardMaterial;
+		Glass: MeshStandardMaterial;
 	};
 };
 

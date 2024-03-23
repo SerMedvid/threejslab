@@ -13,24 +13,24 @@ import useRefs from "react-use-refs";
 
 type GLTFResult = GLTF & {
 	nodes: {
-		shoe: THREE.Mesh;
-		shoe_1: THREE.Mesh;
-		shoe_2: THREE.Mesh;
-		shoe_3: THREE.Mesh;
-		shoe_4: THREE.Mesh;
-		shoe_5: THREE.Mesh;
-		shoe_6: THREE.Mesh;
-		shoe_7: THREE.Mesh;
+		shoe: Mesh;
+		shoe_1: Mesh;
+		shoe_2: Mesh;
+		shoe_3: Mesh;
+		shoe_4: Mesh;
+		shoe_5: Mesh;
+		shoe_6: Mesh;
+		shoe_7: Mesh;
 	};
 	materials: {
-		laces: THREE.MeshStandardMaterial;
-		mesh: THREE.MeshStandardMaterial;
-		caps: THREE.MeshStandardMaterial;
-		inner: THREE.MeshStandardMaterial;
-		sole: THREE.MeshStandardMaterial;
-		stripes: THREE.MeshStandardMaterial;
-		band: THREE.MeshStandardMaterial;
-		patch: THREE.MeshStandardMaterial;
+		laces: MeshStandardMaterial;
+		mesh: MeshStandardMaterial;
+		caps: MeshStandardMaterial;
+		inner: MeshStandardMaterial;
+		sole: MeshStandardMaterial;
+		stripes: MeshStandardMaterial;
+		band: MeshStandardMaterial;
+		patch: MeshStandardMaterial;
 	};
 };
 
@@ -108,7 +108,16 @@ export function ShoeModel(props: JSX.IntrinsicElements["group"]) {
 				updateColor(patchRef.current, new Color(patch));
 			}
 		);
-	}, [bandRef, capsRef, innerRef, lacesRef, meshRef, patchRef, soleRef, stripesRef]);
+	}, [
+		bandRef,
+		capsRef,
+		innerRef,
+		lacesRef,
+		meshRef,
+		patchRef,
+		soleRef,
+		stripesRef,
+	]);
 
 	return (
 		<group

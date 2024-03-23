@@ -4,8 +4,11 @@ import {
 	Lightformer,
 	OrbitControls,
 	Stars,
+	Clouds,
 } from "@react-three/drei";
+
 import { Cloud69 } from "./Cloud69";
+import { MeshBasicMaterial } from "three";
 
 export default function Experience() {
 	return (
@@ -55,10 +58,17 @@ export default function Experience() {
 				fade
 				speed={1}
 			/>
-			<Cloud
-				scale={0.75}
-				opacity={0.3}
-			/>
+
+			<Clouds material={MeshBasicMaterial}>
+				<Cloud
+					bounds={[8, 5, 8]}
+					segments={40}
+					volume={10}
+					opacity={0.3}
+					color="#7ED7FF"
+					fade={100}
+				/>
+			</Clouds>
 
 			<Cloud69 />
 		</>

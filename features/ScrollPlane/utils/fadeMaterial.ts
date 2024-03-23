@@ -1,4 +1,4 @@
-import { Shader } from "three";
+import { WebGLProgramParametersWithUniforms } from "three";
 
 const replaceFragmentShader = (fragmentShader: string) =>
 	fragmentShader
@@ -36,11 +36,15 @@ fadeOpacity = exponentialEasing(fadeOpacity, 0.93);
 vec4 diffuseColor = vec4( diffuse, fadeOpacity * opacity );`
 		);
 
-export const fadeOnBeforeCompile = (shader: Shader) => {
+export const fadeOnBeforeCompile = (
+	shader: WebGLProgramParametersWithUniforms
+) => {
 	shader.fragmentShader = replaceFragmentShader(shader.fragmentShader);
 };
 
-export const fadeOnBeforeCompileFlat = (shader: Shader) => {
+export const fadeOnBeforeCompileFlat = (
+	shader: WebGLProgramParametersWithUniforms
+) => {
 	shader.fragmentShader = replaceFragmentShader(shader.fragmentShader).replace(
 		`#include <dithering_fragment>`,
 		`#include <dithering_fragment>

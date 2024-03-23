@@ -52,8 +52,6 @@ export default function useFireworks() {
 				textures.forEach((texture) => {
 					texture.flipY = false;
 				});
-			} else {
-				textures.flipY = false;
 			}
 		}
 	);

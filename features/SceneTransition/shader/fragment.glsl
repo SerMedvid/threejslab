@@ -7,10 +7,10 @@ uniform float uSmoothness;
 
 varying vec2 vUv;
 
-#include "lygia/generative/fbm.glsl"
-#include "lygia/generative/cnoise.glsl"
-#include "lygia/generative/worley.glsl"
-#include "lygia/generative/curl.glsl"
+#include "../../../shaders/lygia/generative/fbm.glsl";
+#include "../../../shaders/lygia/generative/cnoise.glsl";
+#include "../../../shaders/lygia/generative/worley.glsl";
+#include "../../../shaders/lygia/generative/curl.glsl";
 
 float inverseLerp(float value, float minValue, float maxValue) {
     return (value - minValue) / (maxValue - minValue);

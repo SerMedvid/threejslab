@@ -25,6 +25,7 @@ type GLTFResult = GLTF & {
 		XWingBeam002: THREE.Mesh;
 		XWingBeam003: THREE.Mesh;
 	};
+	materials: {};
 };
 
 type ContextType = Record<

@@ -25,7 +25,6 @@ export default function Experience() {
 	const triangeRef = useRef<Mesh>(null);
 	const podiumRef = useRef<Group>(null);
 	const tlRef = useRef<gsap.core.Timeline>();
-	const contactShadowsRef = useRef<typeof ContactShadows>(null);
 
 	useControls("General", {
 		Restart: button(() => {
@@ -118,7 +117,6 @@ export default function Experience() {
 				opacity={1}
 				frames={1}
 				far={20}
-				ref={contactShadowsRef}
 			/>
 
 			<group

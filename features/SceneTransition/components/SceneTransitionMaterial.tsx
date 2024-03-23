@@ -4,7 +4,6 @@ import fragment from "../shader/fragment.glsl";
 import vertex from "../shader/vertex.glsl";
 import { ReactThreeFiber } from "@react-three/fiber";
 import { Texture } from "three";
-import { resolveLygia } from "resolve-lygia";
 
 export const SceneTransitionMaterial = shaderMaterial(
 	{
@@ -15,8 +14,8 @@ export const SceneTransitionMaterial = shaderMaterial(
 		uRepeat: 1,
 		uSmoothness: 0.5,
 	},
-	resolveLygia(vertex),
-	resolveLygia(fragment)
+	vertex,
+	fragment
 );
 
 export type SceneTransitionMaterialT = typeof SceneTransitionMaterial &

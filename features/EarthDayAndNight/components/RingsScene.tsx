@@ -9,6 +9,7 @@ import {
 	Mesh,
 	Scene,
 	Texture,
+	PerspectiveCamera as PerspectiveCameraThree,
 } from "three";
 import SceneContainer from "./Scene";
 import useStore from "../stores/useStore";
@@ -21,7 +22,7 @@ type Props = {
 
 export default function RingsScene({ envMap }: Props) {
 	const sceneRef = useRef<Scene>(null);
-	const cameraRef = useRef<Camera>(null);
+	const cameraRef = useRef<PerspectiveCameraThree>(null);
 	const ring1Ref = useRef<Mesh>(null);
 	const ring2Ref = useRef<Mesh>(null);
 	const ring3Ref = useRef<Mesh>(null);
