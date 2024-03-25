@@ -221,4 +221,10 @@ export const projects: FeatureCard[] = [
 			"Simplified version of directional, point and ambient light added via shader",
 		link: "/lab/light-shading",
 	},
+	{
+		headline: "Raging Sea Scene",
+		tags: ["R3F", "Custom Shader"],
+		description: "Customazible raging water shader with floated boat",
+		link: "/lab/raging-sea",
+	},
 ];
