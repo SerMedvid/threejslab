@@ -1,15 +1,18 @@
 import { Points } from "@react-three/drei";
 import { useMemo, useRef } from "react";
-import { Cylindrical, ShaderMaterial, Uniform, Vector3 } from "three";
+import { Cylindrical, ShaderMaterial, Uniform, Vector2, Vector3 } from "three";
 
 import fragmentShader from "../shaders/rainFragment.glsl";
 import vertexShader from "../shaders/rainVertex.glsl";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 
 const COUNT = 2000;
 
 export default function Rain() {
 	const shaderRef = useRef<ShaderMaterial>(null);
+	const gl = useThree((state) => state.gl);
+	const pixelRatio = gl.getPixelRatio();
+	const { width, height } = useThree((state) => state.size);
 
 	const { positionArray, velocityArray } = useMemo(() => {
 		const positionArray = new Float32Array(COUNT * 3);
@@ -59,8 +62,13 @@ export default function Rain() {
 				key={Date.now()}
 				fragmentShader={fragmentShader}
 				vertexShader={vertexShader}
+				transparent
+				depthWrite={false}
 				uniforms={{
 					uTime: new Uniform(0),
+					uResolution: new Uniform(
+						new Vector2(width * pixelRatio, height * pixelRatio)
+					),
 				}}
 			/>
 		</Points>
