@@ -5,6 +5,7 @@ import vertexShader from "../shaders/vertex.glsl";
 import fragmentShader from "../shaders/fragment.glsl";
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 type Props = {
 	uBigWavesElevation: number;
@@ -83,6 +84,67 @@ export default function Sea({
 		}
 	}, []);
 
+	useEffect(() => {
+		if (surfaceRef.current) {
+			const tl = gsap
+				.timeline()
+				.to(surfaceRef.current.uniforms.uLightningIntensity, {
+					value: 30,
+					duration: 0.1,
+				})
+				.to(
+					surfaceRef.current.uniforms.uLightningDecay,
+					{
+						value: 1.1,
+						duration: 0.1,
+					},
+					"-=0.1"
+				)
+				.to(surfaceRef.current.uniforms.uLightningIntensity, {
+					value: 10,
+					duration: 0.2,
+				})
+				.to(
+					surfaceRef.current.uniforms.uLightningDecay,
+					{
+						value: 0.2,
+						duration: 0.2,
+					},
+					"-=0.2"
+				)
+				.to(surfaceRef.current.uniforms.uLightningIntensity, {
+					value: 40,
+					duration: 0.1,
+				})
+				.to(
+					surfaceRef.current.uniforms.uLightningDecay,
+					{
+						value: 1,
+						duration: 0.1,
+					},
+					"-=0.1"
+				)
+				.to(surfaceRef.current.uniforms.uLightningIntensity, {
+					value: 0,
+					duration: 0.3,
+				})
+				.to(
+					surfaceRef.current.uniforms.uLightningDecay,
+					{
+						value: 0,
+						duration: 0.3,
+					},
+					"-=0.3"
+				)
+				.repeatDelay(3)
+				.repeat(-1);
+
+			return () => {
+				tl?.kill();
+			};
+		}
+	}, []);
+
 	return (
 		<mesh rotation-x={-Math.PI / 2}>
 			<planeGeometry
@@ -110,6 +172,8 @@ export default function Sea({
 					uSurfaceColor: new Uniform(new Color(uSurfaceColor)),
 					uColorOffset: new Uniform(uColorOffset),
 					uColorMultiplier: new Uniform(uColorMultiplier),
+					uLightningIntensity: new Uniform(0),
+					uLightningDecay: new Uniform(0),
 				}}
 			/>
 		</mesh>

@@ -2,6 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import Sea from "./Sea";
 import { useControls } from "leva";
 import { BoatModel } from "./BoatModel";
+import Rain from "./Rain";
 
 export default function Experience() {
 	const { uBigWavesElevation, uBigWavesFrequency, uBigWavesSpeed } =
@@ -57,6 +58,8 @@ export default function Experience() {
 				uBigWavesFrequency={uBigWavesFrequency}
 				uBigWavesSpeed={uBigWavesSpeed}
 			/>
+
+			<Rain />
 		</>
 	);
 }
