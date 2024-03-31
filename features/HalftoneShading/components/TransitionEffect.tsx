@@ -53,7 +53,7 @@ export default function TransitionEffect() {
 
 	useEffect(() => {
 		if (cameraControlRef.current) {
-			cameraControlRef.current.setLookAt(0.3, 4.5, 6, 0, 1, 0);
+			cameraControlRef.current.setLookAt(3.4, 5.2, 4.2, 0, 1, 0);
 		}
 	}, []);
 
