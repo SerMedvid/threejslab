@@ -227,4 +227,10 @@ export const projects: FeatureCard[] = [
 		description: "Customazible raging water shader with floated boat",
 		link: "/lab/raging-sea",
 	},
+	{
+		headline: "Halftone Shading",
+		tags: ["R3F", "Custom Shader"],
+		description: "Custom halftone shading with custom transition",
+		link: "/lab/halftone-shading",
+	},
 ];

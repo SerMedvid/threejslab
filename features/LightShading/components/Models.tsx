@@ -18,8 +18,6 @@ export default function Models() {
 	});
 
 	const material = useMemo(() => {
-		console.log(fragmentShader);
-
 		return (
 			<shaderMaterial
 				key={Date.now()}
