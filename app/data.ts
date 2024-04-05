@@ -233,4 +233,11 @@ export const projects: FeatureCard[] = [
 		description: "Custom halftone shading with custom transition",
 		link: "/lab/halftone-shading",
 	},
+	{
+		headline: "Shaman Scene",
+		tags: ["R3F", "Custom Shader", "Blender"],
+		description:
+			"Shaman character created from scratch in Blender with grass shader",
+		link: "/lab/shaman",
+	},
 ];
