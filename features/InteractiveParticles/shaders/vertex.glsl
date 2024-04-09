@@ -27,7 +27,7 @@ void main() {
     vPUv = puv;
 
 	// pixel color
-    vec4 colA = texture2D(uTexture, puv);
+    vec4 colA = texture(uTexture, puv);
     float grey = colA.r * 0.21 + colA.g * 0.71 + colA.b * 0.07;
 
 	// displacement
@@ -40,7 +40,7 @@ void main() {
     displaced.xy -= uTextureSize * 0.5;
 
 	// touch
-    float t = texture2D(uTouch, puv).r;
+    float t = texture(uTouch, puv).r;
     displaced.z += t * 20.0 * rndz;
     displaced.x += cos(angle) * t * 20.0 * rndz;
     displaced.y += sin(angle) * t * 20.0 * rndz;

@@ -10,12 +10,12 @@ varying float frc;
 
 void main() {
     //Get transparency information from alpha map
-    float alpha = texture2D(alphaMap, vUv).r;
+    float alpha = texture(alphaMap, vUv).r;
     //If transparent, don't draw
     if(alpha < 0.15)
         discard;
     //Get colour data from texture
-    vec3 col = vec4(texture2D(map, vUv)).rgb;
+    vec3 col = vec4(texture(map, vUv)).rgb;
 
     float remappedFrc = smoothstep(0.4, 0.95, frc + vUv.y);
 

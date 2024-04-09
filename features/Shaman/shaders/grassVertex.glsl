@@ -61,7 +61,7 @@ void main() {
     frc = position.y / float(bladeHeight);
     //Get wind data from simplex noise 
 
-    float noise = texture2D(perlinTexture, vec2(vec2((time * 0.8 - offset.x / 50.), (time * 0.8 - offset.z / 50.)))).r;
+    float noise = texture(perlinTexture, vec2(vec2((time * 0.8 - offset.x / 50.), (time * 0.8 - offset.z / 50.)))).r;
 
     //Define the direction of an unbent blade of grass rotated around the Y axis
     vec4 direction = vec4(0.0, halfRootAngleSin, 0.0, halfRootAngleCos);

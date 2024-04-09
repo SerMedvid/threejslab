@@ -12,7 +12,7 @@ void main() {
     smokeUv.y *= 0.3;
     smokeUv.y -= time * 0.03 * speed;
 
-    float smoke = texture2D(perlinTexture, smokeUv).r;
+    float smoke = texture(perlinTexture, smokeUv).r;
     smoke = smoothstep(1. - density, 1., smoke);
 
     smoke *= smoothstep(0., 0.05, vUv.x);

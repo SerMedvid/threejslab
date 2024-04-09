@@ -29,7 +29,7 @@ float wave(float direction, float freq, float speed) {
 }
 
 vec2 waves(vec2 position, bool masked) {
-    float mask = texture2D(uMaps, position).b;
+    float mask = texture(uMaps, position).b;
 
     vec2 intensity = vec2(2., 1.) * 1. / uResolution;
 
@@ -40,7 +40,7 @@ vec2 waves(vec2 position, bool masked) {
 
 vec2 depth(vec2 position) {
     vec2 intensity = vec2(0.004);
-    float d = 0. - pow(texture2D(uMaps, position).r, 1.);
+    float d = 0. - pow(texture(uMaps, position).r, 1.);
 
     return position + intensity * uMouse * d;
 }
@@ -50,7 +50,7 @@ void main() {
 
     vec2 turbulance = waves(depth(newUv), true);
 
-    vec4 image = texture2D(uTexture, turbulance);
+    vec4 image = texture(uTexture, turbulance);
 
     gl_FragColor = vec4(image.rgb, 1.);
 }

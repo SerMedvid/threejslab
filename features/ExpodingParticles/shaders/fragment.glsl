@@ -8,8 +8,8 @@ varying vec3 vPosition;
 float PI = 3.141592653589793;
 
 void main() {
-    vec4 ttStart = texture2D(uTStart, vUv);
-    vec4 ttEnd = texture2D(uTEnd, vUv);
+    vec4 ttStart = texture(uTStart, vUv);
+    vec4 ttEnd = texture(uTEnd, vUv);
 
     vec4 finalTexture = mix(ttStart, ttEnd, uProgress);
     gl_FragColor = finalTexture;

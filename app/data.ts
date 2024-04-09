@@ -240,4 +240,11 @@ export const projects: FeatureCard[] = [
 			"Shaman character created from scratch in Blender with grass shader",
 		link: "/lab/shaman",
 	},
+	{
+		headline: "Earth",
+		tags: ["R3F", "Custom Shader"],
+		description:
+			"Earth with realistinc terrain, height, cloud and atmosphere shaders, day/night change and sun lens flare",
+		link: "/lab/earth",
+	},
 ];

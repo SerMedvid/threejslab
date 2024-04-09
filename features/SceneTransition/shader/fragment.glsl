@@ -22,8 +22,8 @@ float remap(float value, float inMin, float inMax, float outMin, float outMax) {
 }
 
 void main() {
-    vec4 texture1 = texture2D(uTextureStart, vUv);
-    vec4 texture2 = texture2D(uTextureEnd, vUv);
+    vec4 texture1 = texture(uTextureStart, vUv);
+    vec4 texture2 = texture(uTextureEnd, vUv);
 
     vec4 finalColor;
 

@@ -11,7 +11,7 @@ void main() {
     float fresnel = dot(viewDirection, normal) + 1.;
     fresnel = smoothstep(0.5, 0.75, fresnel);
 
-    float baseTexture = texture2D(uBaseTexture, vUv).r;
+    float baseTexture = texture(uBaseTexture, vUv).r;
 
     vec3 color = vec3(0.021, 0.503, 0.503);
     vec3 colorFresnel = vec3(0.434, 1., 0.002);

@@ -7,11 +7,11 @@ uniform float uEffectFactor;
 
 void main() {
     vec2 uv = vUv;
-    vec4 disp = texture2D(uTextureDisp, uv);
+    vec4 disp = texture(uTextureDisp, uv);
     vec2 distortedPosition = vec2(uv.x + uDispFactor * (disp.r * uEffectFactor), uv.y);
     vec2 distortedPosition2 = vec2(uv.x - (1.0 - uDispFactor) * (disp.r * uEffectFactor), uv.y);
-    vec4 _texture = texture2D(uTextureStart, distortedPosition);
-    vec4 _texture2 = texture2D(uTextureEnd, distortedPosition2);
+    vec4 _texture = texture(uTextureStart, distortedPosition);
+    vec4 _texture2 = texture(uTextureEnd, distortedPosition2);
     vec4 finalTexture = mix(_texture, _texture2, uDispFactor);
     gl_FragColor = finalTexture;
 }

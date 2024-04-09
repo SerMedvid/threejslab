@@ -17,11 +17,11 @@ void main() {
 
     vec3 newPosition = position;
 
-    float twistPerlin = texture2D(perlinTexture, vec2(0.5 * seed, uv.y * 0.2 - time * rotationSpeed)).r;
+    float twistPerlin = texture(perlinTexture, vec2(0.5 * seed, uv.y * 0.2 - time * rotationSpeed)).r;
     float angle = twistPerlin * 10.;
     newPosition.xz = rotate2D(newPosition.xz, angle);
 
-    vec2 windOffset = vec2(texture2D(perlinTexture, vec2(0.25 * seed, time * 0.01)).r - 0.5, (perlinTexture, vec2(0.75 * seed, time * 0.01)).r -0.5);
+    vec2 windOffset = vec2(texture(perlinTexture, vec2(0.25 * seed, time * 0.01)).r - 0.5, (perlinTexture, vec2(0.75 * seed, time * 0.01)).r -0.5);
 
     windOffset *= pow(uv.y, 2.) * 10.;
 

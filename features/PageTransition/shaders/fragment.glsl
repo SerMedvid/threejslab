@@ -22,7 +22,7 @@ vec2 getUv(vec2 uv, vec2 textureSize, vec2 quadSize) {
 
 void main() {
     vec2 correctUv = getUv(vUv, uTextureSize, vSize);
-    vec4 image = texture2D(uTexture, correctUv);
+    vec4 image = texture(uTexture, correctUv);
 
     gl_FragColor = image;
 }

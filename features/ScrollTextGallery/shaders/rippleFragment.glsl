@@ -106,8 +106,8 @@ void main() {
 
     vec2 distortUv = vUv + 0.1 * (1. - final);
 
-    vec4 sceneTexture = texture2D(uTexture, distortUv);
-    vec4 overlayTexture = texture2D(uOverlayTexture, distortUv);
+    vec4 sceneTexture = texture(uTexture, distortUv);
+    vec4 overlayTexture = texture(uOverlayTexture, distortUv);
 
     vec4 combinedTexture = mix(sceneTexture, overlayTexture, overlayTexture.a);
 
