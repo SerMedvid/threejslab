@@ -16,8 +16,11 @@ export default function Experience() {
 			if (textRef.current && textMaterialRef.current && cameraRef.current) {
 				await gsap
 					.timeline()
+					.set(cameraRef.current, {
+						enabled: false,
+					})
 					.to(textMaterialRef.current, {
-						delay: 1.5,
+						delay: 1,
 						opacity: 1,
 						duration: 0.7,
 					})
@@ -32,6 +35,9 @@ export default function Experience() {
 					.to(textRef.current.position, {
 						y: 1.5,
 						delay: 1.5,
+					})
+					.set(cameraRef.current, {
+						enabled: true,
 					})
 					.add(() => {
 						cameraRef.current?.setLookAt(5.78, 2.12, -0.91, 0, 0, 0, true);
