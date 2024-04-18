@@ -247,4 +247,11 @@ export const projects: FeatureCard[] = [
 			"Earth with realistinc terrain, height, cloud and atmosphere shaders, day/night change and sun lens flare",
 		link: "/lab/earth",
 	},
+	{
+		headline: "Cyberpunk Vending Machine",
+		tags: ["R3F", "Custom Shader", "Blender", "Particles"],
+		description:
+			"Cyberpunk style vending machine with smoke and fire shaders. Try if you dare. Created for Threejs Journey challange",
+		link: "/lab/vending-machine",
+	},
 ];
