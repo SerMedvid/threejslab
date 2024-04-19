@@ -36,7 +36,7 @@ export default function Loader() {
 	return (
 		<Html center>
 			<div
-				className={`bg-neutral-950 w-[100vw] h-[100svh] flex duration-500 px-4 py-4 justify-center items-center ${
+				className={`bg-neutral-950 w-[100vw] h-[100svh] flex duration-1000 px-4 py-4 justify-center items-center ${
 					animateOut ? "translate-y-full" : "translate-y-0"
 				}`}
 			>
