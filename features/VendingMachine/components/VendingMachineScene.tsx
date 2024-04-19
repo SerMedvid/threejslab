@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.2.11 public/assets/VendingMachine/cyberpank-vendor-machin
 */
 
 import * as THREE from "three";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import DamagedBarrel from "./DamagedBarrel";
@@ -15,6 +15,7 @@ import TopDisplay from "./TopDisplay";
 import CabineLight from "./CabineLight";
 import RightDisplay from "./RightDisplay";
 import VentRibbon from "./VentRibbons";
+import useStore from "../store/useStore";
 
 type GLTFResult = GLTF & {
 	nodes: {
@@ -124,6 +125,13 @@ export function VendingMachineScene(props: JSX.IntrinsicElements["group"]) {
 	const { nodes, materials } = useGLTF(
 		"/assets/VendingMachine/cyberpank-vendor-machine.glb"
 	) as GLTFResult;
+
+	const setIsReady = useStore((state) => state.setIsReady);
+
+	useEffect(() => {
+		setIsReady(true);
+	}, [setIsReady]);
+
 	return (
 		<group
 			{...props}
