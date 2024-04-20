@@ -24,7 +24,7 @@ export default function Loader() {
 
 				setTimeout(() => {
 					setCanShow(false);
-				}, 500);
+				}, 1000);
 			}
 		},
 		[isReady],
@@ -34,7 +34,7 @@ export default function Loader() {
 	if (!canShow) return null;
 
 	return (
-		<Html center>
+		<Html fullscreen>
 			<div
 				className={`bg-neutral-950 w-[100vw] h-[100svh] flex duration-1000 px-4 py-4 justify-center items-center ${
 					animateOut ? "translate-y-full" : "translate-y-0"
