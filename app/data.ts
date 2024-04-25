@@ -254,4 +254,11 @@ export const projects: FeatureCard[] = [
 			"Cyberpunk style vending machine with smoke and fire shaders. Try if you dare. Created for Threejs Journey challange",
 		link: "/lab/vending-machine",
 	},
+	{
+		headline: "SciFi Coridor",
+		tags: ["R3F", "Blender"],
+		description:
+			"SciFi coridor created in blender with heavy usage of hard surface modeling and boolean operators",
+		link: "/lab/scifi-coridor",
+	},
 ];
