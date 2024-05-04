@@ -1,4 +1,4 @@
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useScroll } from "@react-three/drei";
 
 import vertexShader from "../shaders/vertexShader.glsl";
 import fragmentShader from "../shaders/fragmentShader.glsl";
@@ -13,15 +13,20 @@ import {
 	SphereGeometry,
 	Uniform,
 } from "three";
-import { useThree } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useMemo, useRef, useState } from "react";
 
-import gsap from "gsap";
+import GroupControl from "./GroupControl";
+
+const size = 0.075;
+const colorA = "#ff7300";
+const colorB = "#0091ff";
 
 export default function Models() {
-	const models = useGLTF("/assets/ParticlesMorphing/models.glb");
-	const isTransitioning = useRef<boolean>(false);
-	const currentIndexRef = useRef(0);
+	const scroll = useScroll();
+
+	const models = useGLTF("/assets/ParticlesMorphing/particles-models.glb");
+
 	const ref = useRef<SphereGeometry>(null);
 	const pointsRef = useRef<Points<SphereGeometry, ShaderMaterial>>(null);
 
@@ -73,68 +78,13 @@ export default function Models() {
 		};
 	}, [models]);
 
-	const handleClick = async (nextIdex: number) => {
-		if (pointsRef.current && !isTransitioning.current) {
-			pointsRef.current.geometry.attributes.position =
-				positions[currentIndexRef.current];
-			pointsRef.current.geometry.attributes.aPositionTarget =
-				positions[nextIdex];
-
-			await gsap.fromTo(
-				pointsRef.current.material.uniforms.uProgress,
-				{
-					value: 0,
-				},
-				{
-					value: 1,
-					duration: 3,
-					ease: "linear",
-					onStart: () => {
-						isTransitioning.current = true;
-					},
-					onComplete: () => {
-						currentIndexRef.current = nextIdex;
-						isTransitioning.current = false;
-					},
-				}
-			);
-		}
-	};
-
-	const { size, colorA, colorB } = useControls({
-		size: 0.1,
-		colorA: "#ff7300",
-		colorB: "#0091ff",
-		progress: {
-			value: 0,
-			min: 0,
-			max: 1,
-			onChange: (val) => {
-				if (pointsRef.current) {
-					pointsRef.current.material.uniforms.uProgress.value = val;
-				}
-			},
-		},
-		morphTo0: button(() => {
-			handleClick(0);
-		}),
-		morphTo1: button(() => {
-			handleClick(1);
-		}),
-		morphTo2: button(() => {
-			handleClick(2);
-		}),
-		morphTo3: button(() => {
-			handleClick(3);
-		}),
-	});
-
 	const gl = useThree((state) => state.gl);
 	const pixelRatio = gl.getPixelRatio();
 	const { width, height } = useThree((state) => state.size);
 
 	const [staticUniforms] = useState(() => ({
 		uProgress: new Uniform(0),
+		uTime: new Uniform(0),
 	}));
 
 	const [attributes] = useState(() => ({
@@ -143,34 +93,58 @@ export default function Models() {
 		aSize: sizes,
 	}));
 
+	useFrame((_, delta) => {
+		if (pointsRef.current) {
+			const { offset, pages } = scroll;
+			const clampPages = pages / 2;
+
+			const animationProgress = (offset * pages) % 2;
+			const particlesProgress = Math.max(0, animationProgress - 1);
+			const index = Math.min(Math.floor(offset * clampPages), clampPages - 1);
+			const nextIndex = Math.min(index + 1, clampPages - 1);
+
+			pointsRef.current.geometry.attributes.position = positions[index];
+			pointsRef.current.geometry.attributes.aPositionTarget =
+				positions[nextIndex];
+
+			pointsRef.current.material.uniforms.uProgress.value = particlesProgress;
+			pointsRef.current.material.uniforms.uTime.value += delta;
+		}
+	});
+
 	return (
 		<>
-			<points
-				ref={pointsRef}
-				frustumCulled={false}
-			>
-				<bufferGeometry
-					ref={ref}
-					attributes={{
-						...attributes,
-					}}
-				></bufferGeometry>
-				<shaderMaterial
-					toneMapped={false}
-					depthWrite={false}
-					blending={AdditiveBlending}
-					key={Date.now()}
-					vertexShader={vertexShader}
-					fragmentShader={fragmentShader}
-					uniforms={{
-						uSize: new Uniform(size),
-						uResolution: new Uniform([width * pixelRatio, height * pixelRatio]),
-						uColorA: new Uniform(new Color(colorA)),
-						uColorB: new Uniform(new Color(colorB)),
-						...staticUniforms,
-					}}
-				/>
-			</points>
+			<GroupControl>
+				<points
+					ref={pointsRef}
+					frustumCulled={false}
+				>
+					<bufferGeometry
+						ref={ref}
+						attributes={{
+							...attributes,
+						}}
+					></bufferGeometry>
+					<shaderMaterial
+						toneMapped={false}
+						depthWrite={false}
+						blending={AdditiveBlending}
+						key={Date.now()}
+						vertexShader={vertexShader}
+						fragmentShader={fragmentShader}
+						uniforms={{
+							uSize: new Uniform(size),
+							uResolution: new Uniform([
+								width * pixelRatio,
+								height * pixelRatio,
+							]),
+							uColorA: new Uniform(new Color(colorA)),
+							uColorB: new Uniform(new Color(colorB)),
+							...staticUniforms,
+						}}
+					/>
+				</points>
+			</GroupControl>
 		</>
 	);
 }

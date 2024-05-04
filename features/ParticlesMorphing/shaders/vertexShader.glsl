@@ -3,6 +3,7 @@ uniform vec2 uResolution;
 uniform float uProgress;
 uniform vec3 uColorA;
 uniform vec3 uColorB;
+uniform float uTime;
 
 attribute vec3 aPositionTarget;
 attribute float aSize;
@@ -27,7 +28,7 @@ void main() {
     vec4 modelPosition = modelMatrix * vec4(mixedPosition, 1.);
     vec4 viewPosition = viewMatrix * modelPosition;
 
-    gl_Position = projectionMatrix * viewPosition;
+    gl_Position = (projectionMatrix * viewPosition);
 
     gl_PointSize = aSize * uSize * uResolution.y;
     gl_PointSize *= 1. / -viewPosition.z;

@@ -1,4 +1,4 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Stars } from "@react-three/drei";
 import Models from "./Models";
 
 export default function Experience() {
@@ -9,7 +9,9 @@ export default function Experience() {
 				attach={"background"}
 			/>
 
-			<OrbitControls />
+			<OrbitControls enableZoom={false} />
+
+			<Stars count={2000} />
 
 			<Models />
 		</>

@@ -261,4 +261,11 @@ export const projects: FeatureCard[] = [
 			"SciFi coridor created in blender with heavy usage of hard surface modeling and boolean operators",
 		link: "/lab/scifi-coridor",
 	},
+	{
+		headline: "Particles Morphing",
+		tags: ["R3F", "Custom Shader", "Particles", "Scroll"],
+		description:
+			"Particles morphing animation into different models bound to scroll",
+		link: "/lab/particles-morphing",
+	},
 ];
