@@ -10,6 +10,7 @@ export default function Layout() {
 			<ScrollControls
 				pages={8}
 				damping={0.1}
+				distance={2}
 			>
 				<Experience />
 			</ScrollControls>
