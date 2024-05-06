@@ -268,4 +268,10 @@ export const projects: FeatureCard[] = [
 			"Particles morphing animation into different models bound to scroll",
 		link: "/lab/particles-morphing",
 	},
+	{
+		headline: "Wobble Sphere",
+		tags: ["R3F", "Custom Shader"],
+		description: "Wobble sphere with controls and shadow support",
+		link: "/lab/wobbly-sphere",
+	},
 ];
