@@ -1,0 +1,10 @@
+.yearWrapper {
+  position: fixed!important;
+  top: 30vh!important;
+}
+
+@media screen and (min-width: 1024px) {
+  .yearWrapper {
+    top: 33vh!important;
+  }
+}
