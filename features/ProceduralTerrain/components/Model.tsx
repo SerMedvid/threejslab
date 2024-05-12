@@ -1,41 +1,102 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import {
-	BoxGeometry,
 	Color,
 	Mesh,
 	MeshDepthMaterial,
+	MeshPhysicalMaterial,
 	MeshStandardMaterial,
 	PlaneGeometry,
 	RGBADepthPacking,
 	ShaderMaterial,
 	Uniform,
 } from "three";
-import { Brush, Evaluator, SUBTRACTION } from "three-bvh-csg";
 import CustomShaderMaterial from "three-custom-shader-material";
 
 import vertexShader from "../shaders/terrain/vertex.glsl";
 import fragmentShader from "../shaders/terrain/fragment.glsl";
 import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
+import { useScroll } from "@react-three/drei";
+import Container from "./Container";
 
 export default function Model() {
-	const [evaluator] = useState(() => new Evaluator());
-
-	const board = useMemo(() => {
-		const boardFill = new Brush(new BoxGeometry(11, 2, 11));
-
-		// boardFill.material.color.set("red");
-		const boardHole = new Brush(new BoxGeometry(10, 2.1, 10));
-		// boardHole.position.y = 0.2;
-		// boardHole.updateMatrixWorld();
-
-		const board = evaluator.evaluate(boardFill, boardHole, SUBTRACTION);
-		board.geometry.clearGroups();
-
-		return board;
-	}, [evaluator]);
-
 	const meshRef = useRef<Mesh<PlaneGeometry, ShaderMaterial>>(null);
+
+	const waterRef = useRef<Mesh<PlaneGeometry, MeshPhysicalMaterial>>(null);
+
+	const scrollData = useScroll();
+
+	useFrame(() => {
+		if (waterRef.current && meshRef.current) {
+			const { offset: scroolOffset } = scrollData;
+
+			if (scroolOffset < 0.2) {
+				const phaseOffset = scrollData.range(-0.02, 0.2);
+
+				meshRef.current.material.uniforms.uGrassLevel.value = 1;
+
+				meshRef.current.material.uniforms.uStrength.value = phaseOffset * 2;
+
+				meshRef.current.material.uniforms.uOffset.value = 1 - phaseOffset;
+
+				meshRef.current.material.uniforms.uWarpStrength.value =
+					0.1 + 0.4 * phaseOffset;
+			} else if (scroolOffset < 0.5) {
+				const phaseOffset = scrollData.range(0.2, 0.3);
+
+				meshRef.current.material.uniforms.uStrength.value =
+					2 + phaseOffset * 1.5;
+
+				meshRef.current.material.uniforms.uWarpStrength.value =
+					0.5 - 0.4 * phaseOffset;
+
+				meshRef.current.material.uniforms.uGrassLevel.value =
+					-0.06 + (0.3 - phaseOffset * 0.3);
+			} else if (scroolOffset < 0.7) {
+				const phaseOffset = scrollData.range(0.5, 0.2);
+
+				meshRef.current.material.uniforms.uOffset.value = 0 - phaseOffset * 0.8;
+
+				meshRef.current.material.uniforms.uWarpStrength.value =
+					0.1 + 0.4 * phaseOffset;
+
+				meshRef.current.material.uniforms.uStrength.value =
+					3.5 - phaseOffset * 1.5;
+
+				waterRef.current.position.y = -0.1 + phaseOffset * 0.8;
+			} else if (scroolOffset < 0.8) {
+				const phaseOffset = scrollData.range(0.7, 0.1);
+
+				meshRef.current.material.uniforms.uOffset.value =
+					-0.8 + phaseOffset * 0.8;
+
+				meshRef.current.material.uniforms.uWarpStrength.value =
+					0.5 - 0.3 * phaseOffset;
+
+				meshRef.current.material.uniforms.uStrength.value = 2 + phaseOffset;
+
+				waterRef.current.position.y = 0.7 - phaseOffset * 0.8;
+			} else if (scroolOffset < 0.9) {
+				const phaseOffset = scrollData.range(0.8, 0.1);
+
+				meshRef.current.material.uniforms.uOffset.value = phaseOffset * 0.8;
+
+				waterRef.current.position.y = -0.1 - phaseOffset * 0.8;
+			} else {
+				const phaseOffset = scrollData.range(0.9, 0.1);
+
+				meshRef.current.material.uniforms.uOffset.value =
+					0.8 - phaseOffset * 0.8;
+
+				meshRef.current.material.uniforms.uWarpStrength.value =
+					0.2 + 0.3 * phaseOffset;
+
+				meshRef.current.material.uniforms.uStrength.value = 3 - phaseOffset;
+
+				waterRef.current.position.y = -0.9 + phaseOffset * 0.8;
+			}
+		}
+	});
 
 	useLayoutEffect(() => {
 		if (meshRef.current) {
@@ -43,6 +104,12 @@ export default function Model() {
 			meshRef.current.geometry.deleteAttribute("uv");
 			meshRef.current.geometry.deleteAttribute("normal");
 		}
+
+		return () => {
+			if (meshRef.current) {
+				meshRef.current.geometry.rotateX(Math.PI * 0.5);
+			}
+		};
 	}, []);
 
 	const [staticUniforms] = useState(() => ({
@@ -60,6 +127,8 @@ export default function Model() {
 		colorSand,
 		colorSnow,
 		colorWaterSurface,
+		offset,
+		grassLevel,
 	} = useControls({
 		positionFrequency: {
 			value: 0.2,
@@ -85,6 +154,16 @@ export default function Model() {
 			max: 1,
 			step: 0.001,
 		},
+		offset: {
+			value: 0,
+			min: -1,
+			max: 1,
+		},
+		grassLevel: {
+			value: -0.06,
+			min: -0.06,
+			max: 1,
+		},
 		colorWaterDeep: "#002b3d",
 		colorWaterSurface: "#66a8ff",
 		colorSand: "#ffe894",
@@ -98,6 +177,8 @@ export default function Model() {
 		uStrength: new Uniform(strength),
 		uWarpFrequency: new Uniform(warpFrequency),
 		uWarpStrength: new Uniform(warpStrength),
+		uOffset: new Uniform(offset),
+		uGrassLevel: new Uniform(grassLevel),
 		...staticUniforms,
 	};
 
@@ -108,7 +189,7 @@ export default function Model() {
 	});
 
 	return (
-		<>
+		<Container>
 			<mesh
 				ref={meshRef}
 				receiveShadow
@@ -148,6 +229,7 @@ export default function Model() {
 			<mesh
 				rotation-x={-Math.PI / 2}
 				position-y={-0.1}
+				ref={waterRef}
 			>
 				<planeGeometry args={[10, 10, 1, 1]} />
 				<meshPhysicalMaterial
@@ -155,18 +237,6 @@ export default function Model() {
 					roughness={0.3}
 				/>
 			</mesh>
-
-			<mesh
-				{...board}
-				castShadow
-				receiveShadow
-			>
-				<meshStandardMaterial
-					color={"#ffffff"}
-					metalness={0}
-					roughness={0.3}
-				/>
-			</mesh>
-		</>
+		</Container>
 	);
 }

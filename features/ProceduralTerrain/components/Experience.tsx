@@ -1,10 +1,10 @@
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Bounds, Environment } from "@react-three/drei";
 import Model from "./Model";
 
 export default function Experience() {
 	return (
 		<>
-			<OrbitControls />
+			{/* <OrbitControls /> */}
 
 			<Environment
 				files={"/assets/ProceduralTerrain/spruit_sunrise.hdr"}
@@ -27,7 +27,13 @@ export default function Experience() {
 				shadow-camera-left={-8}
 			/>
 
-			<Model />
+			<Bounds
+				fit
+				observe
+				margin={1}
+			>
+				<Model />
+			</Bounds>
 		</>
 	);
 }

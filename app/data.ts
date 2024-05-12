@@ -274,4 +274,11 @@ export const projects: FeatureCard[] = [
 		description: "Wobble sphere with controls and shadow support",
 		link: "/lab/wobbly-sphere",
 	},
+	{
+		headline: "Procedural terrain",
+		tags: ["R3F", "Custom Shader", "Scroll"],
+		description:
+			"Climate change procedural terrain scene, based on scroll animation",
+		link: "/lab/procedural-terrain",
+	},
 ];
