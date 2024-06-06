@@ -281,4 +281,11 @@ export const projects: FeatureCard[] = [
 			"Climate change procedural terrain scene, based on scroll animation",
 		link: "/lab/procedural-terrain",
 	},
+	{
+		headline: "Warp Slider",
+		tags: ["R3F", "Custom Shader", "Mouse interaction"],
+		description:
+			"Slider with warp effect on mouse interaction and progress change",
+		link: "/lab/warp-slider",
+	},
 ];

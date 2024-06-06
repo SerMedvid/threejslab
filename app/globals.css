@@ -5,3 +5,15 @@
 svg {
     display: inline-block;
 }
+
+@layer base {
+    .text-outline-px {
+      -webkit-text-stroke: 1px white;
+    }
+    .text-outline-0\.5 {
+      -webkit-text-stroke: 2px white;
+    }
+    .text-outline-1 {
+      -webkit-text-stroke: 4px white;
+    }
+  }
