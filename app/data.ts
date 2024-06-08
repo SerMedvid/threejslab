@@ -288,4 +288,11 @@ export const projects: FeatureCard[] = [
 			"Slider with warp effect on mouse interaction and progress change",
 		link: "/lab/warp-slider",
 	},
+	{
+		headline: "Isabella Explorer",
+		tags: ["R3F", "Custom Shader", "Blender"],
+		description:
+			"Meet Isabella, explorer of the unknown. Created in Blender while learning character modeling",
+		link: "/lab/isabella-explorer",
+	},
 ];
