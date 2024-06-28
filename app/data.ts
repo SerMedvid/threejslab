@@ -295,4 +295,11 @@ export const projects: FeatureCard[] = [
 			"Meet Isabella, explorer of the unknown. Created in Blender while learning character modeling",
 		link: "/lab/isabella-explorer",
 	},
+	{
+		headline: "SDF Shape Sky",
+		tags: ["R3F", "Custom Shader", "SDF Shapes"],
+		description:
+			"Day and night animation sky created exclusively with SDF shapes",
+		link: "/lab/sdf-shapes",
+	},
 ];
