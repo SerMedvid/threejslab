@@ -302,4 +302,10 @@ export const projects: FeatureCard[] = [
 			"Day and night animation sky created exclusively with SDF shapes",
 		link: "/lab/sdf-shapes",
 	},
+	{
+		headline: "Infinite wormhole",
+		tags: ["R3F", "Edges"],
+		description: "Trevel through infinite wormhole with Tron vibe ",
+		link: "/lab/wormhole",
+	},
 ];
