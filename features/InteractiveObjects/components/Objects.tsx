@@ -28,7 +28,7 @@ const FAR_COLOR = new Color("#d9bc04");
 
 export default function Objects({
 	count,
-	range = 4,
+	range = 20,
 	gravityCenter = sceneCenter,
 }: Props) {
 	const baseColor = new Color();

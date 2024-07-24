@@ -33,7 +33,7 @@ export default function Experience() {
 				<PlayerObject ref={playerObjectRef} />
 
 				<Objects
-					count={100}
+					count={200}
 					gravityCenter={playerPosition}
 				/>
 			</Physics>
