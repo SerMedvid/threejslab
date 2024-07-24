@@ -45,6 +45,8 @@ export default function Objects({
 		const instances: InstancedRigidBodyProps[] = [];
 
 		for (let i = 0; i < count; i++) {
+			const scale = Math.random() * (1 - 0.75) + 0.75;
+
 			instances.push({
 				key: "instance_" + Math.random(),
 				position: [
@@ -52,6 +54,7 @@ export default function Objects({
 					Math.random() * range - range / 2,
 					Math.random() * range - range / 2,
 				],
+				scale: [scale, scale, scale],
 			});
 		}
 
