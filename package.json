@@ -12,6 +12,7 @@
     "@react-three/drei": "^9.102.6",
     "@react-three/fiber": "^8.15.19",
     "@react-three/postprocessing": "^2.16.2",
+    "@react-three/rapier": "^1.4.0",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",

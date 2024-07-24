@@ -305,7 +305,14 @@ export const projects: FeatureCard[] = [
 	{
 		headline: "Infinite wormhole",
 		tags: ["R3F", "Edges"],
-		description: "Trevel through infinite wormhole with Tron vibe ",
+		description: "Trevel through infinite wormhole with Tron vibe",
 		link: "/lab/wormhole",
+	},
+	{
+		headline: "Physics based interactive objects",
+		tags: ["R3F", "Rapier", "Physics", "Mouse interaction"],
+		description:
+			"Combination of dynamic gravity and physics based coliision mouse interaction scene",
+		link: "/lab/interactive-objects",
 	},
 ];
