@@ -315,4 +315,11 @@ export const projects: FeatureCard[] = [
 			"Combination of dynamic gravity and physics based coliision mouse interaction scene",
 		link: "/lab/interactive-objects",
 	},
+	{
+		headline: "Color Boost Shader",
+		tags: ["R3F", "Custom Shader", "Mouse interaction"],
+		description:
+			"Realtime color boost / image grayscale shader with mouse interaction for color picking",
+		link: "/lab/color-boost",
+	},
 ];
