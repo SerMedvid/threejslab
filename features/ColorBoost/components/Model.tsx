@@ -22,8 +22,6 @@ export default function Model() {
 		},
 	});
 
-	console.log(image);
-
 	const imgSrc = image || "/assets/checker.jpg";
 
 	useEffect(() => {
@@ -65,3 +63,6 @@ export default function Model() {
 		</mesh>
 	);
 }
+
+useTexture.preload("/assets/ColorBoost/japan.jpg");
+useTexture.preload("/assets/checker.jpg");
