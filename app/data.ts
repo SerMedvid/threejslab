@@ -322,4 +322,11 @@ export const projects: FeatureCard[] = [
 			"Realtime color boost / image grayscale shader with mouse interaction for color picking",
 		link: "/lab/color-boost",
 	},
+	{
+		headline: "Pixelated Image Slider",
+		tags: ["R3F", "Custom Shader", "Mouse interaction"],
+		description:
+			"Tribute to the grate tool nowerdays - Leonardo AI, presening the greate work with pixel scale slider",
+		link: "/lab/pixalated",
+	},
 ];
