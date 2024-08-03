@@ -329,4 +329,11 @@ export const projects: FeatureCard[] = [
 			"Tribute to the grate tool nowerdays - Leonardo AI, presening the greate work with pixel scale slider",
 		link: "/lab/pixalated",
 	},
+	{
+		headline: "constellation Particles Animation",
+		tags: ["R3F", "Custom Shader", "Particles"],
+		description:
+			"3D version of travel particles constellation animation with controls",
+		link: "/lab/particle-constellation",
+	},
 ];
