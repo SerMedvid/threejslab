@@ -336,4 +336,17 @@ export const projects: FeatureCard[] = [
 			"3D version of travel particles constellation animation with controls",
 		link: "/lab/particle-constellation",
 	},
+	{
+		headline: "Product showcase 3D Carousel",
+		tags: [
+			"R3F",
+			"Custom Shader",
+			"Mouse interaction",
+			"Html mixture",
+			"Blender",
+		],
+		description:
+			"Threejs implementation of Cosmin Capitanu work (https://dribbble.com/shots/16460483-Cake-Couch) using custom blur shader and HTML/3D mixture. Models are handcrafted in Blender",
+		link: "/lab/product-showcase",
+	},
 ];
