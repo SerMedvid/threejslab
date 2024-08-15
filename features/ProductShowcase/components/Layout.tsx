@@ -6,6 +6,7 @@ import FloatMenu from "./FloatMenu";
 import MainSliderRenderer from "./Main3DSlider/MainSliderRenderer";
 import { LinearSRGBColorSpace } from "three";
 import Table from "./InfoSlider/Table";
+import Credits from "./Credits";
 
 export default function Layout() {
 	return (
@@ -36,6 +37,7 @@ export default function Layout() {
 
 				<FloatMenu />
 			</div>
+			<Credits />
 		</>
 	);
 }
