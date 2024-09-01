@@ -350,7 +350,7 @@ export const projects: FeatureCard[] = [
 		link: "/lab/product-showcase",
 	},
 	{
-		headline: "Product showcase 3D Carousel",
+		headline: "Toilet Paper 3D menu",
 		tags: ["R3F", "Mouse interaction", "Html mixture", "Blender"],
 		description:
 			"Threejs implementation of Voicu Apostol work (https://dribbble.com/shots/24067227--Paper-Menu) using HTML/3D mixture technique. Models are handcrafted in Blender, textured in Substance Painter",
