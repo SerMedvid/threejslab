@@ -349,4 +349,11 @@ export const projects: FeatureCard[] = [
 			"Threejs implementation of Cosmin Capitanu work (https://dribbble.com/shots/16460483-Cake-Couch) using custom blur shader and HTML/3D mixture. Models are handcrafted in Blender",
 		link: "/lab/product-showcase",
 	},
+	{
+		headline: "Product showcase 3D Carousel",
+		tags: ["R3F", "Mouse interaction", "Html mixture", "Blender"],
+		description:
+			"Threejs implementation of Voicu Apostol work (https://dribbble.com/shots/24067227--Paper-Menu) using HTML/3D mixture technique. Models are handcrafted in Blender, textured in Substance Painter",
+		link: "/lab/3d-paper-menu",
+	},
 ];

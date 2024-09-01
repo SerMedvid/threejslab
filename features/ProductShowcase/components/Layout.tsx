@@ -6,7 +6,7 @@ import FloatMenu from "./FloatMenu";
 import MainSliderRenderer from "./Main3DSlider/MainSliderRenderer";
 import { LinearSRGBColorSpace } from "three";
 import Table from "./InfoSlider/Table";
-import Credits from "./Credits";
+import Credits from "@/components/Credits";
 
 export default function Layout() {
 	return (
@@ -37,7 +37,11 @@ export default function Layout() {
 
 				<FloatMenu />
 			</div>
-			<Credits />
+
+			<Credits
+				name="Cosmin Capitanu"
+				href="https://dribbble.com/shots/16460483-Cake-Couch"
+			/>
 		</>
 	);
 }
