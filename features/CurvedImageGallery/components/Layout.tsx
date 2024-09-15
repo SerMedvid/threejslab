@@ -14,7 +14,7 @@ export default function Layout() {
 					Leonardo AI works
 				</p>
 
-				<div>
+				<div className="user-select-none">
 					<Links />
 				</div>
 			</div>

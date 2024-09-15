@@ -17,7 +17,7 @@ const Link = ({ id, name }: LinkProps) => {
 			key={id}
 			onPointerEnter={onHover}
 		>
-			<h3 className="whitespace-nowrap truncate max-w-[30vw] leading-relaxed uppercase">
+			<h3 className="whitespace-nowrap truncate max-w-[60vw] md:max-w-[30vw] leading-relaxed uppercase">
 				{name}
 			</h3>
 		</li>

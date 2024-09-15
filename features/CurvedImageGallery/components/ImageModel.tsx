@@ -20,17 +20,17 @@ export default function ImageModel() {
 		}, {} as Record<string, string>)
 	);
 
+	const { width, height } = useThree((state) => state.viewport);
+
 	const aspect = useAspect(
 		textures[slides[0].id].image.width,
 		textures[slides[0].id].image.height,
-		0.2
+		width > height ? 0.2 : 0.4
 	);
 	const materialRef = useRef<ShaderMaterial>(null);
 	const meshRef = useRef<Mesh>(null);
 	const image = useStore((state) => state.currentImage);
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-	const { width, height } = useThree((state) => state.viewport);
 
 	useEffect(() => {
 		if (!materialRef.current) return;
