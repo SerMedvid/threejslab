@@ -356,4 +356,11 @@ export const projects: FeatureCard[] = [
 			"Threejs implementation of Voicu Apostol work (https://dribbble.com/shots/24067227--Paper-Menu) using HTML/3D mixture technique. Models are handcrafted in Blender, textured in Substance Painter",
 		link: "/lab/3d-paper-menu",
 	},
+	{
+		headline: "Curved Image Gallery",
+		tags: ["R3F", "Mouse interaction", "Html mixture", "Custom Shader"],
+		description:
+			"Featured curved image gallary reacting to mouse movement speed and direction. Slide changes based on hovered link",
+		link: "/lab/curved-image-gallery",
+	},
 ];
