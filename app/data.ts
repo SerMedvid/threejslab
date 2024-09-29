@@ -363,4 +363,11 @@ export const projects: FeatureCard[] = [
 			"Featured curved image gallary reacting to mouse movement speed and direction. Slide changes based on hovered link",
 		link: "/lab/curved-image-gallery",
 	},
+	{
+		headline: "3D Skateboard configurator",
+		tags: ["R3F", "Mouse interaction", "Html mixture", "Blender"],
+		description:
+			"Threejs implementation of awazing Sacha Jerrems work (https://dribbble.com/shots/14078930-Skateboard-configurator) of UX flow for skateboard configurator using HTML/3D mixture technique. Models are handcrafted and textured in Blender",
+		link: "/lab/skateboard-configurator",
+	},
 ];
