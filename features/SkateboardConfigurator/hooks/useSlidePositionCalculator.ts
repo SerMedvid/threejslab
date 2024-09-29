@@ -3,6 +3,7 @@ import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { Group, Vector3 } from "three";
 import { MathUtils } from "three/src/math/MathUtils.js";
 import useStore from "../stores/useStore";
+import { easing } from "maath";
 
 type Props = {
 	slideIdx: number;
@@ -32,6 +33,7 @@ export default function useSlidePositionCalculator({
 	const { width: viewportWidth } = useThree((state) => state.viewport);
 	const setMovementX = useStore((store) => store.setMovementX);
 	const [worldPosition] = useState(() => new Vector3());
+	const deltaRef = useRef<number>(0);
 
 	const calculatePositionCallbackFn = useCallback(() => {
 		calculatePositionCallback && calculatePositionCallback(slideRef);
@@ -73,10 +75,13 @@ export default function useSlidePositionCalculator({
 					force
 				) {
 					slideRef.current.getWorldPosition(worldPosition);
-					slideRef.current.position.x = MathUtils.lerp(
-						slideRef.current.position.x,
+
+					easing.damp(
+						slideRef.current.position,
+						"x",
 						targetPosition.current,
-						lerpDuration
+						lerpDuration,
+						deltaRef.current
 					);
 
 					if (
@@ -145,8 +150,9 @@ export default function useSlidePositionCalculator({
 		swipingModifier,
 	]);
 
-	useFrame(() => {
+	useFrame((_, delta) => {
 		if (needCalculatePosition) {
+			deltaRef.current = delta;
 			calculatePosition();
 		}
 	});

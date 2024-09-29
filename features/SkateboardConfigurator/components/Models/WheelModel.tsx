@@ -15,6 +15,7 @@ import fragmentShader from "../../shaders/wheel-transition/fragment.glsl";
 import vertexShader from "../../shaders/wheel-transition/vertex.glsl";
 import { shallow } from "zustand/shallow";
 import { wheelApperAnimation } from "../../animation/wheelModelAnimation";
+import { useThree } from "@react-three/fiber";
 
 type GLTFResult = GLTF & {
 	nodes: {
@@ -60,6 +61,8 @@ export function WheelModel({
 	textureMap.colorSpace = THREE.SRGBColorSpace;
 	aoMap.flipY = false;
 
+	const { width: viewportWidth } = useThree((state) => state.viewport);
+
 	const material = useMemo(() => {
 		const mat = new ThreeCustomShaderMaterial({
 			baseMaterial: materials["Wheels - Base Color"],
@@ -79,7 +82,6 @@ export function WheelModel({
 		return mat;
 	}, [materials, textureMap, manageOpacity]);
 
-	const dragOffset = useRef(Math.PI);
 	const setMovementX = useStore((state) => state.setMovementX);
 
 	useEffect(() => {
@@ -88,9 +90,10 @@ export function WheelModel({
 				movementX: state.movementX,
 				isSwiping: state.isSwiping,
 				isWheelPhase: state.configurationPhase === ConfigurationPhase.WHEEL,
+				generalDirection: state.generalDirection,
 			}),
 			(data) => {
-				const { movementX, isSwiping, isWheelPhase } = data;
+				const { isSwiping, isWheelPhase, generalDirection } = data;
 
 				if (!isWheelPhase) {
 					return;
@@ -98,7 +101,7 @@ export function WheelModel({
 
 				if (
 					!isWheelPhase ||
-					!movementX ||
+					!generalDirection ||
 					!wheel1Ref.current ||
 					!wheel2Ref.current ||
 					!wheel3Ref.current ||
@@ -108,12 +111,12 @@ export function WheelModel({
 				}
 
 				if (isSwiping) {
-					dragOffset.current += movementX / 50;
+					const dragginOffset = generalDirection / 10;
 
-					wheel1Ref.current.rotation.z = dragOffset.current;
-					wheel2Ref.current.rotation.z = dragOffset.current;
-					wheel3Ref.current.rotation.z = dragOffset.current;
-					wheel4Ref.current.rotation.z = dragOffset.current;
+					wheel1Ref.current.rotation.z = dragginOffset;
+					wheel2Ref.current.rotation.z = dragginOffset;
+					wheel3Ref.current.rotation.z = dragginOffset;
+					wheel4Ref.current.rotation.z = dragginOffset;
 				} else {
 					gsap.to(
 						[
@@ -127,18 +130,17 @@ export function WheelModel({
 							duration: 0.5,
 							ease: "power2.out",
 							onComplete: () => {
-								dragOffset.current = Math.PI;
 								setMovementX(0);
 							},
 						}
 					);
 
 					if (
-						Math.abs(dragOffset.current) > 3.5 &&
+						Math.abs(generalDirection / viewportWidth) > 0.3 &&
 						material &&
 						transitionCallback
 					) {
-						const offsetDirection = Math.sign(dragOffset.current);
+						const offsetDirection = Math.sign(generalDirection);
 
 						transitionCallback(material, offsetDirection * -1);
 					}
@@ -150,7 +152,7 @@ export function WheelModel({
 		return () => {
 			unsubscribe();
 		};
-	}, [material, setMovementX, transitionCallback]);
+	}, [material, transitionCallback, viewportWidth]);
 
 	/** Enter animation */
 	useEffect(() => {

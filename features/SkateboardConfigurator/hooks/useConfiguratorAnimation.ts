@@ -118,9 +118,14 @@ export default function useConfiguratorAnimation({
 		};
 	}, [animationScale, containerRef]);
 
-	useFrame(() => {
+	useFrame((_, delta) => {
 		if (containerRef.current && !isTransition) {
-			easing.damp3(containerRef.current.position, targetPosition.current, 0.2);
+			easing.damp3(
+				containerRef.current.position,
+				targetPosition.current,
+				0.2,
+				delta
+			);
 		}
 	});
 }
